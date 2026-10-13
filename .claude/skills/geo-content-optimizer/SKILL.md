@@ -1,7 +1,7 @@
 ---
 name: geo-content-optimizer
 version: "3.0.0"
-description: 'This skill should be used when the user asks to "optimize for AI", "get cited by ChatGPT", "appear in AI answers", "GEO optimization", "generative engine optimization", "Google AI Overview optimization", "get mentioned by Perplexity AI", "appear in Gemini answers", "AI does not mention my brand", "make content AI-quotable", or "increase AI citation frequency". Optimizes content to increase citation frequency across AI systems: ChatGPT (Browse), Claude, Perplexity AI, Google AI Overviews, and Google Gemini. Adds quotable statements, structured Q&A, precise statistics with sources, expert attribution, and FAQ schema. Uses CORE-EEAT GEO-First items (C02, C09, O03, R01–R05, E01) as optimization targets. Produces a GEO score, rewritten content sections, and a citation-optimization checklist. For SEO-focused writing, see seo-content-writer. For entity and brand AI presence, see entity-optimizer.'
+description: 'This skill should be used when the user asks to "optimize for AI", "get cited by ChatGPT", "appear in AI answers", "GEO optimization", "generative engine optimization", "Google AI Overview optimization", "get mentioned by Perplexity AI", "appear in Gemini answers", "AI does not mention my brand", "make content AI-quotable", or "increase AI citation frequency". Optimizes content to increase citation frequency across AI systems: ChatGPT (Browse), Claude, Perplexity AI, Google AI Overviews, and Google Gemini. Adds quotable statements, structured Q&A, precise statistics with sources, expert attribution, and FAQ schema. Uses CORE-EEAT GEO-First items (C02, C09, O03, R01–R05, E01) as optimization targets. Produces a GEO score, rewritten content sections, and a citation-optimization checklist. For entity and brand AI presence, see entity-optimizer.'
 license: Apache-2.0
 compatibility: "Claude Code ≥1.0, skills.sh marketplace, ClawHub marketplace, Vercel Labs skills ecosystem. No system packages required. Optional: MCP network access for SEO tool integrations."
 metadata:
@@ -34,23 +34,6 @@ metadata:
 ---
 
 # GEO Content Optimizer
-
-> **[SEO & GEO Skills Library](https://skills.sh/aaron-he-zhu/seo-geo-claude-skills)** · 20 skills for SEO + GEO · Install all: `npx skills add aaron-he-zhu/seo-geo-claude-skills`
-
-<details>
-<summary>Browse all 20 skills</summary>
-
-**Research** · [keyword-research](../../research/keyword-research/) · [competitor-analysis](../../research/competitor-analysis/) · [serp-analysis](../../research/serp-analysis/) · [content-gap-analysis](../../research/content-gap-analysis/)
-
-**Build** · [seo-content-writer](../seo-content-writer/) · **geo-content-optimizer** · [meta-tags-optimizer](../meta-tags-optimizer/) · [schema-markup-generator](../schema-markup-generator/)
-
-**Optimize** · [on-page-seo-auditor](../../optimize/on-page-seo-auditor/) · [technical-seo-checker](../../optimize/technical-seo-checker/) · [internal-linking-optimizer](../../optimize/internal-linking-optimizer/) · [content-refresher](../../optimize/content-refresher/)
-
-**Monitor** · [rank-tracker](../../monitor/rank-tracker/) · [backlink-analyzer](../../monitor/backlink-analyzer/) · [performance-reporter](../../monitor/performance-reporter/) · [alert-manager](../../monitor/alert-manager/)
-
-**Cross-cutting** · [content-quality-auditor](../../cross-cutting/content-quality-auditor/) · [domain-authority-auditor](../../cross-cutting/domain-authority-auditor/) · [entity-optimizer](../../cross-cutting/entity-optimizer/) · [memory-management](../../cross-cutting/memory-management/)
-
-</details>
 
 This skill optimizes content to appear in AI-generated responses. As AI systems increasingly answer user queries directly, getting cited by these systems becomes crucial for visibility.
 
@@ -100,8 +83,6 @@ Audit this content for GEO readiness and suggest improvements
 
 ## Data Sources
 
-> See [CONNECTORS.md](../../CONNECTORS.md) for tool category placeholders.
-
 **With ~~AI monitor + ~~SEO tool connected:**
 Automatically pull AI citation patterns (which content is being cited by ChatGPT, Claude, Perplexity), current AI visibility scores, competitor citation frequency, and AI Overview appearance tracking.
 
@@ -119,7 +100,7 @@ When a user requests GEO optimization:
 
 1. **Load CORE-EEAT GEO-First Optimization Targets**
 
-   Before optimizing, load GEO-critical items from the [CORE-EEAT Benchmark](../../references/core-eeat-benchmark.md):
+   Before optimizing, load GEO-critical items from the [CORE-EEAT Benchmark](../references/core-eeat-benchmark.md):
 
    ```markdown
    ### CORE-EEAT GEO-First Targets
@@ -141,7 +122,7 @@ When a user requests GEO optimization:
    R01, R02, R03, R04, R05, R07, R09 | E01, E02, E03, E04, E06, E08, E09, E10
    Exp10 | Ept05, Ept08 | A08
 
-   **AI Engine Preferences**:
+   **AI Engine Preferences** (the skill author's heuristics; AI companies do not publish how they pick sources):
    | Engine | Priority Items |
    |--------|----------------|
    | Google AI Overview | C02, O03, O05, C09 |
@@ -149,7 +130,7 @@ When a user requests GEO optimization:
    | Perplexity AI | E01, R03, R05, Ept05 |
    | Claude | R04, Ept08, Exp10, R03 |
 
-   _Full benchmark: [references/core-eeat-benchmark.md](../../references/core-eeat-benchmark.md)_
+   _Full benchmark: [references/core-eeat-benchmark.md](../references/core-eeat-benchmark.md)_
    ```
 
 2. **Analyze Current Content**
@@ -268,7 +249,7 @@ When a user requests GEO optimization:
 
     **Items Needing Attention**: [list any ⚠️/❌ items]
 
-    _For full 80-item audit, use [content-quality-auditor](../../cross-cutting/content-quality-auditor/)_
+    _Full 80-item checklist: [CORE-EEAT benchmark](../references/core-eeat-benchmark.md)_
     ```
 
 ## Validation Checkpoints
@@ -279,6 +260,8 @@ When a user requests GEO optimization:
 - [ ] Current GEO baseline assessed (if optimizing existing content)
 
 ### Output Validation
+
+> **Company and landing pages:** short sections with one message each don't fit article-length targets. Keep the direct answer, definitions, full entity names and consistent facts. Use only real first-party facts (founding year, product count, user figures the owner provides); never add outside statistics or citations just to hit a count.
 - [ ] At least 3 clear, quotable definitions added
 - [ ] Factual density improved with at least 5 verifiable statistics
 - [ ] All claims have source citations from authoritative sources
@@ -342,9 +325,6 @@ Changes: added clear definition, 2 stats with sources, structured list, DMA/Emar
 
 ## Related Skills
 
-- [seo-content-writer](../seo-content-writer/) — Create SEO content to optimize
 - [schema-markup-generator](../schema-markup-generator/) — Add structured data
-- [content-refresher](../../optimize/content-refresher/) — Update content for freshness
-- [content-quality-auditor](../../cross-cutting/content-quality-auditor/) — Full 80-item CORE-EEAT audit
-- [serp-analysis](../../research/serp-analysis/) — Analyze AI Overview patterns
+- [serp-analysis](../serp-analysis/) — Analyze AI Overview patterns
 

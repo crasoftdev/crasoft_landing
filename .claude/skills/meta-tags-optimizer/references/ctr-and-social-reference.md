@@ -109,6 +109,8 @@ Reference tables for click-through rate optimization, Open Graph best practices,
 
 ### Factors That Increase Organic CTR
 
+> These figures come from older third-party studies and vary a lot by query, position and industry. Some studies contradict others (for example, on power words). Treat them as ideas to test in Search Console, never as promised results.
+
 | Factor | CTR Impact | Implementation |
 |--------|-----------|----------------|
 | Number in title | +20-30% | "7 Ways", "15 Tips", "2026" |
@@ -118,7 +120,7 @@ Reference tables for click-through rate optimization, Open Graph best practices,
 | Current year | +10-15% | "Best SEO Tools 2026" |
 | Power words | +12% | See Power Words table above |
 | Match search intent | +15-25% | Align title with SERP expectations |
-| Rich results (schema) | +30% | FAQ, HowTo, Review stars |
+| Rich results (schema) | Varies | Review stars, Product, Video (FAQ limited, HowTo removed) |
 
 ---
 

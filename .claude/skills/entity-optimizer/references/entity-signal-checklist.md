@@ -90,7 +90,7 @@ These signals specifically help AI systems recognize, understand, and cite the e
 | 33 | Entity definition quotable in first paragraph | Review About page and key pages | Clear, factual, self-contained definition suitable for AI quotation |
 | 34 | Factual claims are verifiable | Cross-reference claims with external sources | All claims about entity can be verified via third-party sources |
 | 35 | Entity name used consistently | Audit all platforms | Identical name format everywhere (no abbreviations in some places, full name in others) |
-| 36 | Content is crawlable by AI systems | Check robots.txt for AI bot access | Not blocking GPTBot, ClaudeBot, or other AI crawlers (unless intentional) |
+| 36 | Content is crawlable by AI systems | Check robots.txt for AI bot access | Not blocking AI search/assistant bots (OAI-SearchBot, ChatGPT-User, Claude-SearchBot, Claude-User, PerplexityBot) unless intentional |
 | 37 | Fresh information available | Check update dates | Key entity pages updated within last 6 months |
 
 ## Priority 4: Advanced Signals (Nice-to-Have)

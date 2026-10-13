@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Claude Design reference files, not site code.
+    "Crasoft landing page planning/**",
   ]),
 ]);
 

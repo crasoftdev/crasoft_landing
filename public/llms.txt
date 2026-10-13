@@ -1,0 +1,19 @@
+# Crasoft
+
+> Crasoft is a US software company founded in 2020. We build TFONE, a family of apps for trucking companies, and custom software for businesses and founders.
+
+## Pages
+
+- [Home](https://crasoftinc.com/): what Crasoft builds, our products, services, process, FAQ and how to book a call
+
+## Products (TFONE, for trucking companies)
+
+- TFONE TMS: one place to manage loads, dispatch, drivers, trucks, billing and documents.
+- TFONE Driver App: drivers see loads, update status and send documents from the road.
+- TFONE Navigation: plans routes based on a truck's height and size.
+- TFSign: sign documents online, without printing or scanning.
+- Relay TMS Sync: a Chrome extension that syncs loads from Relay into TFONE TMS.
+
+## Contact
+
+- Email: info@crasoftinc.com

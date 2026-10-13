@@ -176,23 +176,16 @@ H2: More Information
 | Keyword in title | 2 | Primary keyword in title tag |
 | Keyword in H1 | 2 | Primary keyword in H1 |
 | Keyword in first 100 words | 2 | Primary keyword appears early in content |
-| Keyword density (0.5-2.5%) | 2 | Natural density, not stuffed, not too sparse |
+| Natural keyword use | 2 | Reads naturally; no exact-phrase repetition or stuffing |
 | Secondary keywords present | 2 | 2-3 secondary/related keywords used |
 | LSI/semantic terms | 2 | Related terms and synonyms present |
 | Keyword in URL | 1 | Primary keyword in URL slug |
 | Keyword in image alt text | 1 | At least one image alt contains keyword naturally |
 | Keyword in meta description | 1 | Primary keyword in meta description |
 
-### Keyword Density Guidelines
+### Keyword Use Guidelines
 
-| Density | Score Impact | Assessment |
-|---------|-------------|-----------|
-| 0.5-1.0% | Full points | Natural, well-integrated |
-| 1.0-2.0% | Full points | Acceptable, slightly keyword-focused |
-| 2.0-2.5% | -1 point | Borderline, review for naturalness |
-| 2.5-3.0% | -2 points | Over-optimized, needs reduction |
-| >3.0% | 0 points for density | Keyword stuffing, immediate fix needed |
-| <0.5% | -1 point | Under-optimized, add more natural usage |
+Google does not use keyword density as a ranking factor, so there is no target percentage. Give full points when the topic and its related terms appear where a reader expects them (title, H1, opening paragraph). Take points off only for stuffing: the same exact phrase repeated where a human writer would not repeat it.
 
 ### Calibration Examples
 
@@ -290,10 +283,10 @@ H2: More Information
 |-----------|--------|-------------|
 | Clean URL structure | 2 | Short, descriptive, keyword-containing URL |
 | Correct canonical tag | 2 | Self-referencing canonical or appropriate cross-domain canonical |
-| Mobile-friendly | 2 | Passes mobile-friendly test, responsive layout |
+| Mobile-friendly | 2 | Passes Lighthouse mobile audit, responsive layout |
 | Page speed (LCP) | 2 | LCP ≤2.5s on mobile |
 | HTTPS | 1 | Page served over HTTPS with valid certificate |
-| Schema markup | 1 | Appropriate schema type implemented (Article, FAQ, HowTo, etc.) |
+| Schema markup | 1 | Appropriate schema type implemented (Organization, Article, Breadcrumb, etc.) |
 
 ### URL Quality Guidelines
 
@@ -309,7 +302,7 @@ H2: More Information
 **Score 10/10 (Excellent)**:
 - URL: /blog/keyword-research-guide (clean, keyword-present)
 - Self-referencing canonical tag present
-- Fully responsive, passes mobile-friendly test
+- Fully responsive, passes Lighthouse mobile audit
 - LCP: 1.8s on mobile
 - HTTPS with valid certificate
 - Article + FAQ schema implemented
@@ -469,7 +462,7 @@ Where section weights are: Title 0.15, Meta 0.05, Headers 0.10, Content 0.25, Ke
 |-------|--------|-----------|
 | Thin content (<300 words) | Critical | Expand with subtopics, FAQ, examples |
 | Keyword stuffing (>3%) | High | Reduce usage, use synonyms and related terms |
-| No structured data | Medium | Add relevant schema (FAQ, HowTo, Article) |
+| No structured data | Medium | Add relevant schema (Organization, Article, BreadcrumbList) |
 | Missing internal links | Medium | Add 3-5 contextual internal links |
 | No images | Low | Add 2-3 relevant images with alt text |
 
@@ -490,7 +483,7 @@ Where section weights are: Title 0.15, Meta 0.05, Headers 0.10, Content 0.25, Ke
 | Metric | Good | Needs Improvement | Poor |
 |--------|------|-------------------|------|
 | LCP | ≤2.5s | 2.5-4.0s | >4.0s |
-| FID/INP | ≤100ms/200ms | 100-300ms | >300ms |
+| INP | ≤200ms | 200-500ms | >500ms |
 | CLS | ≤0.1 | 0.1-0.25 | >0.25 |
 | TTFB | ≤800ms | 800-1800ms | >1800ms |
 

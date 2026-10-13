@@ -33,23 +33,6 @@ metadata:
 
 # Meta Tags Optimizer
 
-> **[SEO & GEO Skills Library](https://skills.sh/aaron-he-zhu/seo-geo-claude-skills)** · 20 skills for SEO + GEO · Install all: `npx skills add aaron-he-zhu/seo-geo-claude-skills`
-
-<details>
-<summary>Browse all 20 skills</summary>
-
-**Research** · [keyword-research](../../research/keyword-research/) · [competitor-analysis](../../research/competitor-analysis/) · [serp-analysis](../../research/serp-analysis/) · [content-gap-analysis](../../research/content-gap-analysis/)
-
-**Build** · [seo-content-writer](../seo-content-writer/) · [geo-content-optimizer](../geo-content-optimizer/) · **meta-tags-optimizer** · [schema-markup-generator](../schema-markup-generator/)
-
-**Optimize** · [on-page-seo-auditor](../../optimize/on-page-seo-auditor/) · [technical-seo-checker](../../optimize/technical-seo-checker/) · [internal-linking-optimizer](../../optimize/internal-linking-optimizer/) · [content-refresher](../../optimize/content-refresher/)
-
-**Monitor** · [rank-tracker](../../monitor/rank-tracker/) · [backlink-analyzer](../../monitor/backlink-analyzer/) · [performance-reporter](../../monitor/performance-reporter/) · [alert-manager](../../monitor/alert-manager/)
-
-**Cross-cutting** · [content-quality-auditor](../../cross-cutting/content-quality-auditor/) · [domain-authority-auditor](../../cross-cutting/domain-authority-auditor/) · [entity-optimizer](../../cross-cutting/entity-optimizer/) · [memory-management](../../cross-cutting/memory-management/)
-
-</details>
-
 This skill creates compelling, optimized meta tags that improve click-through rates from search results and enhance social media sharing. It covers title tags, meta descriptions, and social meta tags.
 
 ## When to Use This Skill
@@ -97,8 +80,6 @@ Create Open Graph and Twitter card tags for [page/URL]
 ```
 
 ## Data Sources
-
-> See [CONNECTORS.md](../../CONNECTORS.md) for tool category placeholders.
 
 **With ~~search console + ~~SEO tool connected:**
 Automatically pull current meta tags, CTR data by query, competitor title/description patterns, SERP preview data, and impression/click metrics to identify optimization opportunities.
@@ -194,8 +175,8 @@ When a user requests meta tag optimization:
    [What the page offers] + [Benefit to user] + [Call-to-action]
    
    **Power Elements to Include**:
-   - Numbers and statistics
-   - Current year
+   - Numbers and statistics (real ones only)
+   - Current year (time-sensitive pages only)
    - Emotional triggers
    - Action verbs
    - Unique value proposition
@@ -225,7 +206,7 @@ When a user requests meta tag optimization:
 
 5. **CORE-EEAT Alignment Check**
 
-   Verify meta tags align with content quality standards. Reference: [CORE-EEAT Benchmark](../../references/core-eeat-benchmark.md)
+   Verify meta tags align with content quality standards. Reference: [CORE-EEAT Benchmark](../references/core-eeat-benchmark.md)
 
    ```markdown
    ### CORE-EEAT Meta Tag Alignment
@@ -250,13 +231,15 @@ When a user requests meta tag optimization:
 
    ### CTR Boosting Elements
 
-   | Element | Present | Impact |
-   |---------|---------|--------|
-   | Numbers | Yes/No | +20-30% CTR |
-   | Current Year | Yes/No | +15-20% CTR |
-   | Power Words | Yes/No | +10-15% CTR |
-   | Question | Yes/No | +10-15% CTR |
-   | Brackets | Yes/No | +10% CTR |
+   | Element | Present | Use when |
+   |---------|---------|----------|
+   | Numbers | Yes/No | The page really has a count (list, steps, facts) |
+   | Current Year | Yes/No | Only time-sensitive content; never evergreen pages (homepage, About) |
+   | Power Words | Yes/No | Sparingly; studies disagree on their effect |
+   | Question | Yes/No | The page answers that question directly |
+   | Brackets | Yes/No | Clarifying format, e.g. "(With Examples)" |
+
+   _CTR effects vary by query and position and published uplift figures come from old third-party studies. Measure real changes in ~~search console instead of promising a percentage._
 
    ### A/B Test Suggestions
 
@@ -333,7 +316,7 @@ _Complete meta tag block (with OG, Twitter, Article tags) generated using templa
 2. **Match intent** - Description should preview what page delivers
 3. **Be specific** - Vague descriptions get ignored
 4. **Test variations** - Small changes can significantly impact CTR
-5. **Update regularly** - Add current year, refresh messaging
+5. **Update regularly** - Refresh messaging; add the year only to time-sensitive pages
 6. **Check competitors** - See what's working in your SERP
 
 ## Reference Materials
@@ -343,8 +326,7 @@ _Complete meta tag block (with OG, Twitter, Article tags) generated using templa
 
 ## Related Skills
 
-- [seo-content-writer](../seo-content-writer/) — Create content for meta tags
 - [schema-markup-generator](../schema-markup-generator/) — Add structured data
-- [on-page-seo-auditor](../../optimize/on-page-seo-auditor/) — Audit all meta tags
-- [serp-analysis](../../research/serp-analysis/) — Analyze competitor meta tags
+- [on-page-seo-auditor](../on-page-seo-auditor/) — Audit all meta tags
+- [serp-analysis](../serp-analysis/) — Analyze competitor meta tags
 

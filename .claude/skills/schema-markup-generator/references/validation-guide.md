@@ -205,6 +205,8 @@ Complete reference for validating, testing, and troubleshooting structured data.
 
 ### FAQ Rich Results
 
+> **Since August 2023** Google shows FAQ rich results only for well-known, authoritative government and health websites. Other sites can keep valid FAQPage markup, but should not expect the rich result.
+
 **Eligibility checklist**:
 - [ ] Minimum 2 Q&A pairs
 - [ ] Questions are actual questions (contain "?")
@@ -221,6 +223,8 @@ Complete reference for validating, testing, and troubleshooting structured data.
 - User-generated Q&A (use QAPage instead)
 
 ### How-To Rich Results
+
+> **Removed.** Google stopped showing How-To rich results in September 2023 (mobile and desktop). The checklist below is kept only for schema validity.
 
 **Eligibility checklist**:
 - [ ] Minimum 2 steps with clear instructions

@@ -16,7 +16,7 @@ SERP features fall into five broad categories:
 |----------|---------|--------------|
 | **Knowledge Features** | Knowledge Panel, AI Overview, Featured Snippet | Content quality + structured data |
 | **Engagement Features** | People Also Ask, Related Searches, Things to Know | Content relevance + question coverage |
-| **Rich Results** | FAQ, How-To, Review Stars, Recipe, Event, Product | Schema markup + content format |
+| **Rich Results** | Review Stars, Recipe, Event, Product, Job Posting (FAQ limited, How-To removed) | Schema markup + content format |
 | **Media Features** | Image Pack, Video Carousel, Web Stories | Media optimization + hosting platform |
 | **Commerce Features** | Shopping Results, Local Pack, Ads | Merchant feeds + Google Business Profile + ad spend |
 
@@ -69,7 +69,7 @@ SERP features fall into five broad categories:
 1. **Mine PAA questions for content ideas** -- Each PAA question is a validated search query
 2. **Answer PAA questions within your content** -- Use the exact question as an H2 or H3
 3. **Keep answers concise (40-60 words)** -- PAA answers are short excerpts
-4. **Use FAQ schema markup** -- Increases eligibility for PAA and FAQ rich results
+4. **Use FAQ schema markup** -- Helps machines read the Q&A (FAQ rich results are limited to well-known government/health sites since Aug 2023; PAA does not require schema)
 5. **Create dedicated FAQ sections** -- Group 5-10 related questions at the end of articles
 6. **Target the cascade** -- When users click one PAA, new questions appear; cover those too
 
@@ -260,7 +260,7 @@ SERP features fall into five broad categories:
 3. **Implement breadcrumb schema** -- Helps Google understand site structure
 4. **Create a comprehensive sitemap** -- XML sitemap submitted to Search Console
 5. **Build internal links** -- Strong internal linking reinforces page importance
-6. **Use SearchAction schema** -- Enables the sitelinks search box
+6. **Use WebSite schema with the site name** -- Helps Google show the right site name (the sitelinks search box and SearchAction were retired in Nov 2024)
 
 ---
 
@@ -270,8 +270,8 @@ These features depend on specific structured data markup:
 
 | Rich Result | Schema Required | Content Type | Visual Impact |
 |------------|----------------|-------------|--------------|
-| FAQ | FAQPage | FAQ sections on any page | Expandable Q&A below listing |
-| How-To | HowTo | Step-by-step instructions | Steps with optional images |
+| FAQ | FAQPage | Only well-known government/health sites (since Aug 2023) | Expandable Q&A below listing |
+| How-To | HowTo | Removed Sept 2023 (no longer shown) | — |
 | Review Stars | Review / AggregateRating | Product/service reviews | Star rating in snippet |
 | Recipe | Recipe | Food/cooking content | Image, cook time, calories |
 | Event | Event | Event listings | Date, location, price |

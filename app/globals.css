@@ -1,26 +1,225 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* One light theme, from the Claude Design palette. Components use these tokens
+   (bg-surface, text-ink, ...), never raw hex. Contrast ratios are on surface. */
+@theme {
+  /* Brand: the Crasoft logo color (public/logo_icon.svg).
+     3.69:1 on surface, so use it for icons, borders, fills and large text only. */
+  --color-brand: #97785c;
+  /* Same hue, darker: 5.31:1 on surface, 5.87:1 on white. Small text, links, labels. */
+  --color-brand-strong: #7c5f45;
+  /* Light bronze for decorative dots and accents. Never for text. */
+  --color-brand-light: #c9a98b;
+  /* Tinted fill for badges. brand-strong text on it is 4.81:1. */
+  --color-brand-soft: #f2e7db;
+  /* Warm glow behind the hero. Decorative only. */
+  --color-sand: #e8d3bd;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-ink: #2a2a22; /* text and dark buttons, 13.1:1 on surface */
+  --color-muted: #5e5a4f; /* secondary text, 6.2:1 on surface */
+  --color-line: #e6ddd2; /* dividers and card borders */
+  --color-ring: #e1d7ca; /* orbit rings and pill borders */
+  --color-line-strong: #cfc3b4; /* outline button borders */
+  --color-surface: #f7f3ee; /* page background (cream) */
+  --color-surface-alt: #f2ece4; /* quiet strips and the footer */
+  --color-card: #ffffff; /* cards and raised elements */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* Error text in forms. 6.4:1 on surface. */
+  --color-danger: #a3412e;
+
+  /* TFONE app UI, used only inside the product demos (components/demos). The fake
+     app is dark, like the real one, so it has its own small palette. */
+  --color-tf-frame: #0b0b0b; /* phone body */
+  --color-tf-map: #0f1012; /* map background */
+  --color-tf-bg: #141414; /* app background */
+  --color-tf-panel: #1a1a1a; /* cards, drawers, dialogs */
+  --color-tf-raised: #222222; /* bars, inputs, chat bubbles */
+  --color-tf-line: #282828;
+  --color-tf-line-strong: #333333;
+  --color-tf-text: #ededed;
+  --color-tf-soft: #cfcfcf;
+  --color-tf-dim: #a3a3a3;
+  --color-tf-faint: #8a8a8a;
+  --color-tf-road: #24272c; /* faint roads on the map */
+  --color-tf-done: #5b5e63; /* driven part of a route, expense bars */
+  --color-tf-green: #4ade80;
+  --color-tf-go: #2fb45a; /* primary buttons in the app */
+  --color-tf-green-bg: #16301e;
+  --color-tf-green-line: #1f4d2c;
+  --color-tf-blue: #60a5fa;
+  --color-tf-blue-strong: #3b82f6;
+  --color-tf-blue-soft: #93c5fd;
+  --color-tf-blue-bg: #17263f;
+  --color-tf-blue-line: #1e3a66;
+  --color-tf-orange: #f5a35c;
+  --color-tf-purple: #a78bfa;
+  --color-tf-red: #e5484d;
+  --color-tf-red-soft: #f87171;
+  --color-tf-red-bg: #3a1d1d;
+  --color-tf-dot-red: #ff5f57; /* window buttons */
+  --color-tf-dot-yellow: #febc2e;
+  --color-tf-dot-green: #28c840;
+
+  /* Load-in reveals. CSS, not motion, so text paints before JS loads (LCP).
+     Pair with motion-reduce:animate-none and a [animation-delay:...] step. */
+  --animate-rise: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  --animate-orbit-in: orbit-in 1.4s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+  }
+  @keyframes orbit-in {
+    from {
+      opacity: 0;
+      transform: scale(0.92) rotate(-8deg);
+    }
   }
 }
 
+@theme inline {
+  --font-sans: var(--font-figtree);
+  --font-display: var(--font-outfit);
+  --font-mono: var(--font-jetbrains-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Keeps #anchors clear of the sticky navbar. */
+  scroll-padding-top: 88px;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-surface);
+  color: var(--color-ink);
+}
+
+::selection {
+  background: var(--color-brand-strong);
+  color: var(--color-card);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brand-strong);
+  outline-offset: 2px;
+}
+
+/* Hero orbit (components/home/HeroOrbit.tsx). Endless rotations stay in CSS so they
+   run on the compositor with no JS. Each pill's wrapper turns the opposite way at
+   the same speed, so the labels stay upright. */
+@keyframes orbit-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes orbit-halo {
+  from {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  to {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+}
+
+.orbit-spin {
+  animation: orbit-spin var(--orbit-dur, 60s) linear infinite;
+}
+.orbit-rev {
+  animation: orbit-spin var(--orbit-dur, 60s) linear infinite reverse;
+}
+.orbit-halo {
+  animation: orbit-halo 3.6s ease-in-out infinite alternate;
+}
+
+/* Hovering or focusing a product pauses the whole orbit so it can be read. */
+.orbit:has(.orbit-pill:hover, .orbit-pill:focus-visible) :is(.orbit-spin, .orbit-rev, .orbit-halo) {
+  animation-play-state: paused;
+}
+
+/* Sections rise in as they scroll into view. Pure CSS (scroll-driven), so the text
+   is always in the HTML and visible. Browsers without support just show it. */
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 30%;
+    }
+  }
+}
+
+/* Product demos (components/demos). Before the timeline starts, only the first
+   frame shows: everything that appears later (data-t > 0) is hidden. */
+[data-demo-idle] [data-a]:not([data-t="0"]) {
+  opacity: 0;
+}
+/* Small looping effects inside a demo stop when the demo is paused. */
+[data-demo-paused] * {
+  animation-play-state: paused !important;
+}
+@keyframes demo-ring {
+  from {
+    transform: scale(0.7);
+    opacity: 0.6;
+  }
+  to {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+}
+@keyframes demo-shimmer {
+  from {
+    background-position: -200px 0;
+  }
+  to {
+    background-position: 200px 0;
+  }
+}
+@keyframes demo-dots {
+  0%,
+  80%,
+  100% {
+    opacity: 0.25;
+  }
+  40% {
+    opacity: 1;
+  }
+}
+.demo-ring {
+  animation: demo-ring 2.4s ease-out infinite;
+}
+.demo-spin {
+  animation: orbit-spin 2.4s linear infinite;
+}
+.demo-shimmer {
+  background-size: 200px 8px;
+  animation: demo-shimmer 1.2s linear infinite;
+}
+.demo-dots {
+  animation: demo-dots 1.2s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .orbit-spin,
+  .orbit-rev,
+  .orbit-halo,
+  .demo-ring,
+  .demo-spin,
+  .demo-shimmer,
+  .demo-dots {
+    animation: none;
+  }
 }

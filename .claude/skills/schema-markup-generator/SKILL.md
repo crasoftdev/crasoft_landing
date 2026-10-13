@@ -37,33 +37,16 @@ metadata:
 
 # Schema Markup Generator
 
-> **[SEO & GEO Skills Library](https://skills.sh/aaron-he-zhu/seo-geo-claude-skills)** · 20 skills for SEO + GEO · Install all: `npx skills add aaron-he-zhu/seo-geo-claude-skills`
-
-<details>
-<summary>Browse all 20 skills</summary>
-
-**Research** · [keyword-research](../../research/keyword-research/) · [competitor-analysis](../../research/competitor-analysis/) · [serp-analysis](../../research/serp-analysis/) · [content-gap-analysis](../../research/content-gap-analysis/)
-
-**Build** · [seo-content-writer](../seo-content-writer/) · [geo-content-optimizer](../geo-content-optimizer/) · [meta-tags-optimizer](../meta-tags-optimizer/) · **schema-markup-generator**
-
-**Optimize** · [on-page-seo-auditor](../../optimize/on-page-seo-auditor/) · [technical-seo-checker](../../optimize/technical-seo-checker/) · [internal-linking-optimizer](../../optimize/internal-linking-optimizer/) · [content-refresher](../../optimize/content-refresher/)
-
-**Monitor** · [rank-tracker](../../monitor/rank-tracker/) · [backlink-analyzer](../../monitor/backlink-analyzer/) · [performance-reporter](../../monitor/performance-reporter/) · [alert-manager](../../monitor/alert-manager/)
-
-**Cross-cutting** · [content-quality-auditor](../../cross-cutting/content-quality-auditor/) · [domain-authority-auditor](../../cross-cutting/domain-authority-auditor/) · [entity-optimizer](../../cross-cutting/entity-optimizer/) · [memory-management](../../cross-cutting/memory-management/)
-
-</details>
-
 This skill creates Schema.org structured data markup in JSON-LD format to help search engines understand your content and enable rich results in SERPs.
 
 ## When to Use This Skill
 
-- Adding FAQ schema for expanded SERP presence
-- Creating How-To schema for step-by-step content
+- Adding FAQ schema so search engines and AI systems can read Q&A content
+- Creating How-To schema for step-by-step content (no Google rich result since Sept 2023)
 - Adding Product schema for e-commerce pages
 - Implementing Article schema for blog posts
 - Adding Local Business schema for location pages
-- Creating Review/Rating schema
+- Creating Review/Rating schema for real, third-party reviews
 - Implementing Organization schema for brand presence
 - Any page where rich results would improve visibility
 
@@ -106,8 +89,6 @@ Review and improve this schema markup: [existing schema]
 
 ## Data Sources
 
-> See [CONNECTORS.md](../../CONNECTORS.md) for tool category placeholders.
-
 **With ~~web crawler connected:**
 Automatically crawl and extract page content (visible text, headings, lists, tables), existing schema markup, page metadata, and structured content elements that map to schema properties.
 
@@ -120,13 +101,28 @@ Ask the user to provide:
 
 Proceed with the full workflow using provided data. Note in the output which data is from automated extraction vs. user-provided data.
 
+## Google Rich Result Status
+
+Check this before promising a rich result. Markup that gets no rich result can still help search engines and AI systems understand the page, as long as it matches visible content.
+
+| Feature | Status |
+|---------|--------|
+| FAQ rich results | Since Aug 2023, shown only for well-known, authoritative government and health sites |
+| How-To rich results | Removed (Sept 2023) |
+| Sitelinks search box (`WebSite` + `SearchAction`) | Removed (Nov 2024). `WebSite` itself is still useful for the site name. |
+| Review stars | Not shown for reviews a business publishes about itself (`Organization`/`LocalBusiness`) |
+| `SoftwareApplication` rich result | Requires real `aggregateRating` or `review` plus `offers`. Never invent ratings or prices. |
+| Organization, BreadcrumbList, Article, Product, Video, Event, JobPosting | Supported |
+
+Re-check at https://developers.google.com/search/docs/appearance/structured-data/search-gallery when in doubt.
+
 ## Instructions
 
 When a user requests schema markup:
 
 1. **Identify Content Type and Rich Result Opportunity**
 
-   Reference the [CORE-EEAT Benchmark](../../references/core-eeat-benchmark.md) item **O05 (Schema Markup)** for content-type to schema mapping:
+   Reference the [CORE-EEAT Benchmark](../references/core-eeat-benchmark.md) item **O05 (Schema Markup)** for content-type to schema mapping:
 
    ```markdown
    ### CORE-EEAT Schema Mapping (O05)
@@ -141,6 +137,7 @@ When a user requests schema markup:
    | Use-case | WebPage, Breadcrumb, FAQ | — |
    | FAQ | FAQPage, Breadcrumb | — |
    | Landing | SoftwareApplication, Breadcrumb, FAQ | WebPage |
+   | Company homepage | Organization, WebSite | ItemList of SoftwareApplication (no offers/ratings unless real) |
    | Testimonial | Review, Breadcrumb | FAQ, Person |
 
    *Use the mapping above to ensure schema type matches content type (CORE-EEAT O05: Pass criteria).*
@@ -156,10 +153,10 @@ When a user requests schema markup:
    
    | Rich Result Type | Eligibility | Impact |
    |------------------|-------------|--------|
-   | FAQ | ✅/❌ | High - Expands SERP presence |
-   | How-To | ✅/❌ | Medium - Shows steps in SERP |
+   | FAQ | ✅/❌ | Low - Only well-known government/health sites get FAQ rich results (since Aug 2023) |
+   | How-To | ❌ | None - Rich result removed (Sept 2023) |
    | Product | ✅/❌ | High - Shows price, availability |
-   | Review | ✅/❌ | High - Shows star ratings |
+   | Review | ✅/❌ | High - Shows star ratings (not for self-published reviews of your own business) |
    | Article | ✅/❌ | Medium - Shows publish date, author |
    | Breadcrumb | ✅/❌ | Medium - Shows navigation path |
    | Video | ✅/❌ | High - Shows video thumbnail |
@@ -295,6 +292,8 @@ _Implementation: Wrap the above JSON-LD in `<script type="application/ld+json">.
 
 ### SERP Preview
 
+_Since August 2023 Google shows FAQ rich results only for well-known government and health sites, so most sites will not get the expandable Q&A below. The markup still helps search engines and AI systems read the Q&A._
+
 ```
 SEO Guide: Complete Beginner's Tutorial
 yoursite.com/seo-guide/
@@ -343,8 +342,7 @@ Learn SEO from scratch with our comprehensive guide...
 
 ## Related Skills
 
-- [seo-content-writer](../seo-content-writer/) — Create content worth marking up
-- [on-page-seo-auditor](../../optimize/on-page-seo-auditor/) — Audit existing schema
-- [technical-seo-checker](../../optimize/technical-seo-checker/) — Technical validation
-- [entity-optimizer](../../cross-cutting/entity-optimizer/) — Entity audit informs Organization, Person, Product schema
+- [on-page-seo-auditor](../on-page-seo-auditor/) — Audit existing schema
+- [technical-seo-checker](../technical-seo-checker/) — Technical validation
+- [entity-optimizer](../entity-optimizer/) — Entity audit informs Organization, Person, Product schema
 

@@ -27,14 +27,22 @@ Specifies which bot the rules apply to.
 **Common user-agents**:
 ```
 User-agent: *                    # All bots
-User-agent: Googlebot            # Google's crawler
-User-agent: Bingbot              # Bing's crawler
-User-agent: GPTBot               # OpenAI's crawler
-User-agent: CCBot                # Common Crawl bot
-User-agent: anthropic-ai         # Anthropic's crawler
-User-agent: PerplexityBot        # Perplexity AI crawler
-User-agent: ClaudeBot            # Claude's web crawler
+User-agent: Googlebot            # Google Search (also feeds AI Overviews / AI Mode)
+User-agent: Bingbot              # Bing (also feeds Microsoft Copilot)
+User-agent: GPTBot               # OpenAI: model training
+User-agent: OAI-SearchBot        # OpenAI: ChatGPT search results
+User-agent: ChatGPT-User         # OpenAI: pages fetched when a user asks ChatGPT
+User-agent: ClaudeBot            # Anthropic: model training
+User-agent: Claude-SearchBot     # Anthropic: Claude search results
+User-agent: Claude-User          # Anthropic: pages fetched when a user asks Claude
+User-agent: PerplexityBot        # Perplexity: search index
+User-agent: Perplexity-User      # Perplexity: pages fetched when a user asks
+User-agent: Google-Extended      # Token: Gemini training/grounding (not Search, not AI Overviews)
+User-agent: Applebot-Extended    # Token: Apple AI training (Applebot itself is search)
+User-agent: CCBot                # Common Crawl (used to train many models)
 ```
+
+`anthropic-ai` and `Claude-Web` are retired names. AI bot names change often, so check each vendor's crawler docs before shipping a robots.txt.
 
 **Multiple user-agents**: Group rules by leaving no blank lines between user-agent declarations.
 
@@ -167,41 +175,58 @@ Standard configuration blocking admin and utility directories.
 
 ---
 
-### 4. Block All AI Crawlers
+### 4a. Allow All Crawlers, Including AI (recommended for GEO)
 
 ```
-# Block OpenAI
-User-agent: GPTBot
-Disallow: /
-
-# Block Anthropic
-User-agent: anthropic-ai
-User-agent: ClaudeBot
-Disallow: /
-
-# Block Common Crawl
-User-agent: CCBot
-Disallow: /
-
-# Block Perplexity
-User-agent: PerplexityBot
-Disallow: /
-
-# Block Google-Extended (Bard training)
-User-agent: Google-Extended
-Disallow: /
-
-# Allow search engines
-User-agent: Googlebot
-Disallow:
-
-User-agent: Bingbot
-Disallow:
+User-agent: *
+Allow: /
 
 Sitemap: https://example.com/sitemap.xml
 ```
 
-Use when you want search indexing but not AI training.
+AI search and assistant bots (OAI-SearchBot, ChatGPT-User, Claude-SearchBot, Claude-User, PerplexityBot, Perplexity-User) can only cite pages they can fetch. Google AI Overviews use Googlebot, so blocking Google-Extended does not remove a site from them.
+
+### 4b. Block AI Training, Keep AI Search
+
+```
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: CCBot
+Disallow: /
+
+User-agent: *
+Allow: /
+
+Sitemap: https://example.com/sitemap.xml
+```
+
+Use when you want to appear in AI answers but keep content out of model training.
+
+### 4c. Block All AI Crawlers (hurts GEO)
+
+```
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: CCBot
+Disallow: /
+
+User-agent: *
+Allow: /
+
+Sitemap: https://example.com/sitemap.xml
+```
+
+Use only when you want no AI use at all. The site will also stop being cited by ChatGPT search, Claude and Perplexity.
 
 ---
 
@@ -377,12 +402,13 @@ Sitemap: https://example.com/sitemap.xml
 
 ## Testing and Validation
 
-### Google Search Console Robots.txt Tester
+### Google Search Console robots.txt Report
 
 1. Go to: Search Console → Settings → robots.txt
-2. View current robots.txt
-3. Test specific URLs
-4. See which user-agents are affected
+2. See the fetched robots.txt files, last fetch time, and parse errors
+3. Use URL Inspection to check whether a specific URL is blocked
+
+The old robots.txt Tester was retired in Dec 2023.
 
 ### Manual Testing
 
@@ -397,7 +423,7 @@ Check file is:
 
 ### Common Testing Scenarios
 
-Test these URLs in tester:
+Check these URLs with URL Inspection:
 - Homepage: `/`
 - Product page: `/products/example`
 - Admin page: `/admin/`
@@ -636,7 +662,7 @@ Before deploying:
 - [ ] All paths start with `/`
 - [ ] Sitemap URLs are absolute
 - [ ] No spaces before colons
-- [ ] Tested in Search Console robots.txt tester
+- [ ] Checked in the Search Console robots.txt report and URL Inspection
 - [ ] Not blocking important CSS/JS/images
 - [ ] Not blocking content you want indexed
 - [ ] Trailing slashes used correctly for directories
@@ -669,7 +695,7 @@ Sitemap: https://example.com/sitemap.xml
 
 ### Blocked CSS/JS Files
 
-**Symptom**: "Blocked by robots.txt" in Mobile-Friendly Test
+**Symptom**: "Blocked by robots.txt" resources in URL Inspection (rendered page)
 
 **Fix**:
 1. Add Allow directives:
@@ -679,7 +705,7 @@ Allow: /css/
 Allow: /js/
 Allow: /wp-content/uploads/
 ```
-2. Test in robots.txt tester
+2. Check the Search Console robots.txt report
 3. Request re-render in URL Inspection tool
 
 ---
@@ -702,7 +728,7 @@ Disallow: /
 ## Resources and Tools
 
 **Testing**:
-- Google Search Console robots.txt tester
+- Google Search Console robots.txt report + URL Inspection
 - Bing Webmaster Tools robots.txt analyzer
 - Technical SEO browser extensions
 

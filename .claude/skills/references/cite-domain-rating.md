@@ -6,6 +6,8 @@
 >
 > **Version sync**: When the source spec updates, check: item count references in README (currently "40 items"), skill validation checkpoints, and Sections 2, 3, 7 below.
 
+> **Status:** CITE is a framework created by the skills' author, not an official Google or AI-engine metric. Use it as a checklist only.
+
 **4 dimensions × 10 items = 40 evaluation criteria** for assessing domain authority in the Generative Engine Optimization (GEO) era.
 
 **Sister benchmark**: [CORE-EEAT Content Benchmark](./core-eeat-benchmark.md) — content-level quality assessment (80 items).
@@ -422,7 +424,7 @@ What is the domain's primary function?
 
 ## 8. Data Source Mapping
 
-> Maps each check item to data sources, tools, and audit methods. Use `~~placeholder` categories from [CONNECTORS.md](../CONNECTORS.md) when integrations are available.
+> Maps each check item to data sources, tools, and audit methods. Use `~~placeholder` categories (e.g. ~~SEO tool, ~~search console) when integrations are available.
 
 | Check Item | Data Source | Tools | Audit Method |
 |-----------|------------|-------|-------------|

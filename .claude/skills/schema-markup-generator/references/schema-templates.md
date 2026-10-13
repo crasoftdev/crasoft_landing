@@ -4,7 +4,7 @@ Complete, copy-ready structured data templates for all major schema types. Custo
 
 ## FAQPage Schema
 
-For pages with frequently asked questions. Minimum 2 Q&A pairs required.
+For pages with frequently asked questions. Minimum 2 Q&A pairs required. Google shows FAQ rich results only for well-known government and health sites (since Aug 2023); for other sites the markup only helps machines read the Q&A.
 
 ```json
 {
@@ -45,7 +45,7 @@ For pages with frequently asked questions. Minimum 2 Q&A pairs required.
 
 ## HowTo Schema
 
-For step-by-step instructional content.
+For step-by-step instructional content. Google removed How-To rich results in Sept 2023, so this markup earns no rich result.
 
 ```json
 {
@@ -544,7 +544,7 @@ For cooking recipes.
 
 ## SoftwareApplication Schema
 
-For software, apps, and tools.
+For software, apps, and tools. Google's rich result needs real `aggregateRating` or `review` plus `offers`. If you have no real ratings or public price, drop those properties: the markup still describes the product, it just earns no rich result. Never invent ratings or prices.
 
 ```json
 {

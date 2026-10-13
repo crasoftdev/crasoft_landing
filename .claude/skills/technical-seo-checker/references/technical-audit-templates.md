@@ -14,7 +14,6 @@ Detailed output templates for technical-seo-checker steps 3-9. Referenced from [
 | Metric | Mobile | Desktop | Target | Status |
 |--------|--------|---------|--------|--------|
 | LCP (Largest Contentful Paint) | [X]s | [X]s | <2.5s | ✅/⚠️/❌ |
-| FID (First Input Delay) | [X]ms | [X]ms | <100ms | ✅/⚠️/❌ |
 | CLS (Cumulative Layout Shift) | [X] | [X] | <0.1 | ✅/⚠️/❌ |
 | INP (Interaction to Next Paint) | [X]ms | [X]ms | <200ms | ✅/⚠️/❌ |
 
@@ -66,7 +65,7 @@ Detailed output templates for technical-seo-checker steps 3-9. Referenced from [
 ```markdown
 ## Mobile Optimization Analysis
 
-### Mobile-Friendly Test
+### Mobile Usability Check (Lighthouse / Chrome DevTools)
 
 | Check | Status | Notes |
 |-------|--------|-------|
@@ -174,7 +173,7 @@ Detailed output templates for technical-seo-checker steps 3-9. Referenced from [
 
 ## Step 7: Audit Structured Data
 
-> **CORE-EEAT alignment**: Schema markup quality maps to O05 (Schema Markup) in the CORE-EEAT benchmark. See [content-quality-auditor](../../cross-cutting/content-quality-auditor/) for full content quality audit.
+> **CORE-EEAT alignment**: Schema markup quality maps to O05 (Schema Markup) in the CORE-EEAT benchmark. See the [CORE-EEAT benchmark](../../references/core-eeat-benchmark.md) for full content quality audit.
 
 ```markdown
 ## Structured Data Analysis

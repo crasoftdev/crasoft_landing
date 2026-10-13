@@ -54,7 +54,7 @@ Detailed output templates for on-page-seo-auditor steps 5-11. Referenced from [S
 ## Keyword Optimization Analysis
 
 **Primary Keyword**: "[keyword]"
-**Keyword Density**: [X]%
+**Keyword stuffing check**: [natural / stuffed]
 
 ### Keyword Placement
 
@@ -212,7 +212,7 @@ Content-relevant items from the 80-item benchmark:
 
 **CORE-EEAT Quick Score**: [X]/17 items passing
 
-> For a complete 80-item audit with weighted scoring, use [content-quality-auditor](../../cross-cutting/content-quality-auditor/).
+> For a complete 80-item audit with weighted scoring, see the [CORE-EEAT benchmark](../../references/core-eeat-benchmark.md).
 ```
 
 ---

@@ -8,11 +8,11 @@ Guidelines for selecting the right schema types based on content, industry, and 
 
 | Your Content | Primary Schema | Add If Applicable | Rich Result Eligibility |
 |-------------|---------------|-------------------|----------------------|
-| Blog post / article | Article | FAQ, HowTo, Speakable | Article carousel, FAQ rich result |
+| Blog post / article | Article | FAQ, HowTo | Article rich result (FAQ rich result limited, HowTo removed) |
 | Product page | Product | Review, Offer, AggregateRating | Product snippet with price/rating |
-| Service page | Service | FAQ, LocalBusiness | Service snippet |
-| How-to guide | HowTo | Article, FAQ | How-to rich result with steps |
-| FAQ page | FAQPage | Article | FAQ accordion in SERP |
+| Service page | Service | FAQ, LocalBusiness | None (Google has no Service rich result) |
+| How-to guide | HowTo | Article, FAQ | None (How-To rich result removed Sept 2023) |
+| FAQ page | FAQPage | Article | Only for well-known government/health sites (since Aug 2023) |
 | Recipe | Recipe | Video, AggregateRating | Recipe carousel |
 | Event | Event | Offer, Organization | Event snippet with date/location |
 | Video | VideoObject | Article | Video carousel, key moments |
@@ -22,7 +22,7 @@ Guidelines for selecting the right schema types based on content, industry, and 
 | Course | Course | Organization | Course rich result |
 | Job posting | JobPosting | Organization | Google for Jobs listing |
 | Breadcrumb | BreadcrumbList | (Always add alongside other schema) | Breadcrumb trail in SERP |
-| Software/App | SoftwareApplication | Review, Offer | App snippet |
+| Software/App | SoftwareApplication | Review, Offer | App snippet (needs real rating + offers) |
 
 ---
 
@@ -45,10 +45,10 @@ Guidelines for selecting the right schema types based on content, industry, and 
 
 | Priority | Schema Types | Why |
 |----------|-------------|-----|
-| P0 -- Always | Organization, BreadcrumbList, WebSite (SearchAction) | Foundation for all sites |
-| P1 -- Content | Article, FAQPage, HowTo | Direct rich result eligibility |
+| P0 -- Always | Organization, BreadcrumbList, WebSite | Foundation for all sites (SearchAction / sitelinks search box removed Nov 2024) |
+| P1 -- Content | Article, FAQPage | Article rich results; FAQPage helps machines read Q&A |
 | P2 -- Commercial | Product, Review, AggregateRating, Offer | Revenue-impacting rich results |
-| P3 -- Authority | Person, SameAs, Speakable | E-E-A-T signals, AI citation |
+| P3 -- Authority | Person, sameAs | E-E-A-T signals, AI citation |
 | P4 -- Specialized | Industry-specific types | Niche rich results |
 
 ---

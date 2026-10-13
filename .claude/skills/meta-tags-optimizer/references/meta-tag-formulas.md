@@ -136,7 +136,9 @@ Extended title tag formulas, meta description templates, A/B testing methodology
 
 ### What to Test (Priority Order)
 
-| Priority | Element | Test Variable | Expected Impact |
+> Impact ranges below are rough figures from older third-party studies, not guarantees. Always compare against your own baseline.
+
+| Priority | Element | Test Variable | Reported Impact (unverified) |
 |----------|---------|--------------|-----------------|
 | 1 | Title tag | Add/remove number | +15-25% CTR |
 | 2 | Title tag | Add/remove year | +10-15% CTR |

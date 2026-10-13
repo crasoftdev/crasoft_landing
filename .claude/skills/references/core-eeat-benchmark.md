@@ -6,6 +6,8 @@
 >
 > **Version sync**: When the source spec updates, check: item count references in README (currently "80 items"), skill validation checkpoints, and Sections 2, 3, 7 below.
 
+> **Status:** CORE-EEAT is a framework created by the skills' author. It is not a Google, OpenAI, Anthropic or Perplexity standard. Use it as a checklist; its scores are not official metrics. Google's real guidance on E-E-A-T is in its Search Quality Rater Guidelines and "helpful content" documentation.
+
 **8 dimensions × 10 items = 80 evaluation criteria** for optimizing content visibility across AI engines (GEO) and search engines (SEO).
 
 ---
@@ -188,6 +190,8 @@ The following items can override the overall score — a Fail on any veto item c
 ---
 
 ## 4. AI Engine Citation Preferences
+
+_Heuristics from observation. The AI companies do not publish how they choose sources._
 
 ### Engine-Specific Priorities
 

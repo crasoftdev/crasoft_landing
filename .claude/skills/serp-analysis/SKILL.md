@@ -1,7 +1,7 @@
 ---
 name: serp-analysis
 version: "3.0.0"
-description: 'This skill should be used when the user asks to "analyze search results", "SERP analysis", "what ranks for", "SERP features", "why does this page rank", "what is on page one for this query", "who ranks for this keyword", or "what does Google show for". Analyzes search engine results pages (SERPs) to understand ranking factors, SERP features, user intent patterns, and AI overview triggers. Essential for understanding what it takes to rank. For tracking rankings over time, see rank-tracker. For keyword discovery, see keyword-research.'
+description: 'This skill should be used when the user asks to "analyze search results", "SERP analysis", "what ranks for", "SERP features", "why does this page rank", "what is on page one for this query", "who ranks for this keyword", or "what does Google show for". Analyzes search engine results pages (SERPs) to understand ranking factors, SERP features, user intent patterns, and AI overview triggers. Essential for understanding what it takes to rank. For keyword discovery, see keyword-research.'
 license: Apache-2.0
 compatibility: "Claude Code ≥1.0, skills.sh marketplace, ClawHub marketplace, Vercel Labs skills ecosystem. No system packages required. Optional: MCP network access for SEO tool integrations."
 allowed-tools: WebFetch
@@ -47,24 +47,6 @@ metadata:
 ---
 
 # SERP Analysis
-
-
-> **[SEO & GEO Skills Library](https://skills.sh/aaron-he-zhu/seo-geo-claude-skills)** · 20 skills for SEO + GEO · Install all: `npx skills add aaron-he-zhu/seo-geo-claude-skills`
-
-<details>
-<summary>Browse all 20 skills</summary>
-
-**Research** · [keyword-research](../keyword-research/) · [competitor-analysis](../competitor-analysis/) · **serp-analysis** · [content-gap-analysis](../content-gap-analysis/)
-
-**Build** · [seo-content-writer](../../build/seo-content-writer/) · [geo-content-optimizer](../../build/geo-content-optimizer/) · [meta-tags-optimizer](../../build/meta-tags-optimizer/) · [schema-markup-generator](../../build/schema-markup-generator/)
-
-**Optimize** · [on-page-seo-auditor](../../optimize/on-page-seo-auditor/) · [technical-seo-checker](../../optimize/technical-seo-checker/) · [internal-linking-optimizer](../../optimize/internal-linking-optimizer/) · [content-refresher](../../optimize/content-refresher/)
-
-**Monitor** · [rank-tracker](../../monitor/rank-tracker/) · [backlink-analyzer](../../monitor/backlink-analyzer/) · [performance-reporter](../../monitor/performance-reporter/) · [alert-manager](../../monitor/alert-manager/)
-
-**Cross-cutting** · [content-quality-auditor](../../cross-cutting/content-quality-auditor/) · [domain-authority-auditor](../../cross-cutting/domain-authority-auditor/) · [entity-optimizer](../../cross-cutting/entity-optimizer/) · [memory-management](../../cross-cutting/memory-management/)
-
-</details>
 
 This skill analyzes Search Engine Results Pages to reveal what's working for ranking content, which SERP features appear, and what triggers AI-generated answers. Understand the battlefield before creating content.
 
@@ -117,8 +99,6 @@ Why does [URL] rank #1 for [keyword]?
 ```
 
 ## Data Sources
-
-> See [CONNECTORS.md](../../CONNECTORS.md) for tool category placeholders.
 
 **With ~~SEO tool + ~~search console + ~~AI monitor connected:**
 Automatically fetch SERP snapshots for target keywords, extract ranking page metrics (domain authority, backlinks, content length), pull SERP feature data, and check AI Overview presence using ~~AI monitor. Historical SERP change data and mobile vs. desktop variations can be retrieved automatically.
@@ -229,7 +209,6 @@ Analyze mobile vs desktop SERP differences for [keyword]
 5. **Study the outliers** - Why does a weaker site rank? Opportunity!
 6. **Consider AI Overview optimization** - Growing importance
 
-
 ## Reference Materials
 
 - [Analysis Templates](./references/analysis-templates.md) — Detailed templates for each analysis step (SERP composition, top results, ranking patterns, features, intent, difficulty, recommendations)
@@ -239,10 +218,7 @@ Analyze mobile vs desktop SERP differences for [keyword]
 ## Related Skills
 
 - [keyword-research](../keyword-research/) — Find keywords to analyze
-- [competitor-analysis](../competitor-analysis/) — Deep dive on ranking competitors
-- [on-page-seo-auditor](../../optimize/on-page-seo-auditor/) — Optimize based on findings
-- [geo-content-optimizer](../../build/geo-content-optimizer/) — Optimize for AI citations
-- [meta-tags-optimizer](../../build/meta-tags-optimizer/) — Optimize SERP appearance with meta tags
-- [rank-tracker](../../monitor/rank-tracker/) — Track keyword position changes in SERPs
-- [performance-reporter](../../monitor/performance-reporter/) — Track SERP visibility metrics over time
+- [on-page-seo-auditor](../on-page-seo-auditor/) — Optimize based on findings
+- [geo-content-optimizer](../geo-content-optimizer/) — Optimize for AI citations
+- [meta-tags-optimizer](../meta-tags-optimizer/) — Optimize SERP appearance with meta tags
 

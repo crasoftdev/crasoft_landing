@@ -1,6 +1,8 @@
 # AI Citation Patterns
 
-How different AI systems select and cite content. Understanding these patterns helps optimize content for AI visibility.
+How different AI systems select and cite content, based on observed patterns. The AI companies do not publish their source-selection rules, so treat this as informed guidance that can change.
+
+> **Note:** Statistics, studies and percentages in these examples show the writing format only. They have not been verified. Never copy them into real content.
 
 ## Google AI Overviews
 

@@ -1,7 +1,7 @@
 ---
 name: on-page-seo-auditor
 version: "3.0.0"
-description: 'This skill should be used when the user asks to "audit page SEO", "on-page SEO check", "SEO score", "page optimization", "what SEO issues does this page have", "what is wrong with this page SEO", "score my page", or "why is this page not ranking". Performs comprehensive on-page SEO audits to identify optimization opportunities including title tags, meta descriptions, headers, content quality, internal linking, and image optimization. For server, speed, and crawl issues, see technical-seo-checker. For full EEAT content quality scoring, see content-quality-auditor.'
+description: 'This skill should be used when the user asks to "audit page SEO", "on-page SEO check", "SEO score", "page optimization", "what SEO issues does this page have", "what is wrong with this page SEO", "score my page", or "why is this page not ranking". Performs comprehensive on-page SEO audits to identify optimization opportunities including title tags, meta descriptions, headers, content quality, internal linking, and image optimization. For server, speed, and crawl issues, see technical-seo-checker.'
 license: Apache-2.0
 compatibility: "Claude Code ≥1.0, skills.sh marketplace, ClawHub marketplace, Vercel Labs skills ecosystem. No system packages required. Optional: MCP network access for SEO tool integrations."
 allowed-tools: WebFetch
@@ -42,24 +42,6 @@ metadata:
 
 # On-Page SEO Auditor
 
-
-> **[SEO & GEO Skills Library](https://skills.sh/aaron-he-zhu/seo-geo-claude-skills)** · 20 skills for SEO + GEO · Install all: `npx skills add aaron-he-zhu/seo-geo-claude-skills`
-
-<details>
-<summary>Browse all 20 skills</summary>
-
-**Research** · [keyword-research](../../research/keyword-research/) · [competitor-analysis](../../research/competitor-analysis/) · [serp-analysis](../../research/serp-analysis/) · [content-gap-analysis](../../research/content-gap-analysis/)
-
-**Build** · [seo-content-writer](../../build/seo-content-writer/) · [geo-content-optimizer](../../build/geo-content-optimizer/) · [meta-tags-optimizer](../../build/meta-tags-optimizer/) · [schema-markup-generator](../../build/schema-markup-generator/)
-
-**Optimize** · **on-page-seo-auditor** · [technical-seo-checker](../technical-seo-checker/) · [internal-linking-optimizer](../internal-linking-optimizer/) · [content-refresher](../content-refresher/)
-
-**Monitor** · [rank-tracker](../../monitor/rank-tracker/) · [backlink-analyzer](../../monitor/backlink-analyzer/) · [performance-reporter](../../monitor/performance-reporter/) · [alert-manager](../../monitor/alert-manager/)
-
-**Cross-cutting** · [content-quality-auditor](../../cross-cutting/content-quality-auditor/) · [domain-authority-auditor](../../cross-cutting/domain-authority-auditor/) · [entity-optimizer](../../cross-cutting/entity-optimizer/) · [memory-management](../../cross-cutting/memory-management/)
-
-</details>
-
 This skill performs detailed on-page SEO audits to identify issues and optimization opportunities. It analyzes all on-page elements that affect search rankings and provides actionable recommendations.
 
 ## When to Use This Skill
@@ -78,7 +60,7 @@ This skill performs detailed on-page SEO audits to identify issues and optimizat
 2. **Meta Description Review**: Checks description quality and length
 3. **Header Structure Audit**: Analyzes H1-H6 hierarchy
 4. **Content Quality Assessment**: Reviews content depth and optimization
-5. **Keyword Usage Analysis**: Checks keyword placement and density
+5. **Keyword Usage Analysis**: Checks keyword placement and natural use (no stuffing)
 6. **Internal Link Review**: Evaluates internal linking structure
 7. **Image Optimization Check**: Audits alt text and file optimization
 8. **Technical On-Page Review**: Checks URL, canonical, and mobile factors
@@ -108,8 +90,6 @@ Pre-publish SEO audit for this content targeting [keyword]: [content]
 ```
 
 ## Data Sources
-
-> See [CONNECTORS.md](../../CONNECTORS.md) for tool category placeholders.
 
 **With ~~SEO tool + ~~web crawler connected:**
 Claude can automatically pull page HTML via ~~web crawler, fetch keyword search volume and difficulty from ~~SEO tool, retrieve click-through rate data from ~~search console, and download competitor pages for comparison. This enables fully automated audits with live data.
@@ -234,7 +214,7 @@ When a user requests an on-page SEO audit:
 
    > **Reference**: See [references/audit-templates.md](./references/audit-templates.md) for the content quality template (Step 5).
 
-6. **Audit Keyword Usage** — Primary/secondary keyword placement across all page elements, LSI/related terms, density analysis
+6. **Audit Keyword Usage** — Primary/secondary keyword placement across all page elements, related terms, stuffing check
 
    > **Reference**: See [references/audit-templates.md](./references/audit-templates.md) for the keyword optimization template (Step 6).
 
@@ -252,7 +232,7 @@ When a user requests an on-page SEO audit:
 
 10. **CORE-EEAT Content Quality Quick Scan** — 17 on-page-relevant items from the 80-item CORE-EEAT benchmark
 
-    > **Reference**: See [references/audit-templates.md](./references/audit-templates.md) for the CORE-EEAT quick scan template (Step 10). Full benchmark: [CORE-EEAT Benchmark](../../references/core-eeat-benchmark.md).
+    > **Reference**: See [references/audit-templates.md](./references/audit-templates.md) for the CORE-EEAT quick scan template (Step 10). Full benchmark: [CORE-EEAT Benchmark](../references/core-eeat-benchmark.md).
 
 11. **Generate Audit Summary** — Overall score with visual breakdown, priority issues (critical/important/minor), quick wins, detailed recommendations, competitor comparison, action checklist, expected results
 
@@ -293,12 +273,8 @@ When a user requests an on-page SEO audit:
 
 ## Related Skills
 
-- [seo-content-writer](../../build/seo-content-writer/) — Create optimized content
 - [technical-seo-checker](../technical-seo-checker/) — Technical SEO audit
-- [meta-tags-optimizer](../../build/meta-tags-optimizer/) — Optimize meta tags
-- [serp-analysis](../../research/serp-analysis/) — SERP context for audit findings
-- [content-refresher](../content-refresher/) — Update existing content
-- [content-quality-auditor](../../cross-cutting/content-quality-auditor/) — Full 80-item CORE-EEAT audit
-- [internal-linking-optimizer](../internal-linking-optimizer/) — Optimize internal link structure
-- [schema-markup-generator](../../build/schema-markup-generator/) — Validate and generate schema markup
+- [meta-tags-optimizer](../meta-tags-optimizer/) — Optimize meta tags
+- [serp-analysis](../serp-analysis/) — SERP context for audit findings
+- [schema-markup-generator](../schema-markup-generator/) — Validate and generate schema markup
 

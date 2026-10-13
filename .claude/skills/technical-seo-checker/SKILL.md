@@ -1,7 +1,7 @@
 ---
 name: technical-seo-checker
 version: "3.0.0"
-description: 'This skill should be used when the user asks to "technical SEO audit", "check page speed", "Core Web Vitals", "LCP is slow", "CLS problem", "INP issues", "crawl errors", "indexing problems", "robots.txt check", "XML sitemap errors", "hreflang issues", "canonical tag problems", "HTTPS not working", "mobile SEO", "JavaScript rendering", or "site health check". Performs comprehensive technical SEO audits: Core Web Vitals (LCP/CLS/INP/TTFB), crawlability, indexability, mobile-friendliness, HTTPS/HSTS security, URL structure, redirect chains, robots.txt, XML sitemaps, hreflang, canonical tags, and structured data validation. Produces a scored technical health report (0–100) with critical/high/medium issue triage and a prioritized implementation roadmap. Works with Google PageSpeed Insights, Google Search Console, crawl tools, or manual audit. For content element issues, see on-page-seo-auditor. For link architecture, see internal-linking-optimizer.'
+description: 'This skill should be used when the user asks to "technical SEO audit", "check page speed", "Core Web Vitals", "LCP is slow", "CLS problem", "INP issues", "crawl errors", "indexing problems", "robots.txt check", "XML sitemap errors", "hreflang issues", "canonical tag problems", "HTTPS not working", "mobile SEO", "JavaScript rendering", or "site health check". Performs comprehensive technical SEO audits: Core Web Vitals (LCP/CLS/INP/TTFB), crawlability, indexability, mobile-friendliness, HTTPS/HSTS security, URL structure, redirect chains, robots.txt, XML sitemaps, hreflang, canonical tags, and structured data validation. Produces a scored technical health report (0–100) with critical/high/medium issue triage and a prioritized implementation roadmap. Works with Google PageSpeed Insights, Google Search Console, crawl tools, or manual audit. For content element issues, see on-page-seo-auditor.'
 license: Apache-2.0
 compatibility: "Claude Code ≥1.0, skills.sh marketplace, ClawHub marketplace, Vercel Labs skills ecosystem. No system packages required. Optional: MCP network access for SEO tool integrations."
 allowed-tools: WebFetch
@@ -51,24 +51,6 @@ metadata:
 
 # Technical SEO Checker
 
-
-> **[SEO & GEO Skills Library](https://skills.sh/aaron-he-zhu/seo-geo-claude-skills)** · 20 skills for SEO + GEO · Install all: `npx skills add aaron-he-zhu/seo-geo-claude-skills`
-
-<details>
-<summary>Browse all 20 skills</summary>
-
-**Research** · [keyword-research](../../research/keyword-research/) · [competitor-analysis](../../research/competitor-analysis/) · [serp-analysis](../../research/serp-analysis/) · [content-gap-analysis](../../research/content-gap-analysis/)
-
-**Build** · [seo-content-writer](../../build/seo-content-writer/) · [geo-content-optimizer](../../build/geo-content-optimizer/) · [meta-tags-optimizer](../../build/meta-tags-optimizer/) · [schema-markup-generator](../../build/schema-markup-generator/)
-
-**Optimize** · [on-page-seo-auditor](../on-page-seo-auditor/) · **technical-seo-checker** · [internal-linking-optimizer](../internal-linking-optimizer/) · [content-refresher](../content-refresher/)
-
-**Monitor** · [rank-tracker](../../monitor/rank-tracker/) · [backlink-analyzer](../../monitor/backlink-analyzer/) · [performance-reporter](../../monitor/performance-reporter/) · [alert-manager](../../monitor/alert-manager/)
-
-**Cross-cutting** · [content-quality-auditor](../../cross-cutting/content-quality-auditor/) · [domain-authority-auditor](../../cross-cutting/domain-authority-auditor/) · [entity-optimizer](../../cross-cutting/entity-optimizer/) · [memory-management](../../cross-cutting/memory-management/)
-
-</details>
-
 This skill performs comprehensive technical SEO audits to identify issues that may prevent search engines from properly crawling, indexing, and ranking your site.
 
 ## When to Use This Skill
@@ -117,8 +99,6 @@ Technical SEO checklist for migrating [old domain] to [new domain]
 ```
 
 ## Data Sources
-
-> See [CONNECTORS.md](../../CONNECTORS.md) for tool category placeholders.
 
 **With ~~web crawler + ~~page speed tool + ~~CDN connected:**
 Claude can automatically crawl the entire site structure via ~~web crawler, pull Core Web Vitals and performance metrics from ~~page speed tool, analyze caching headers from ~~CDN, and fetch mobile-friendliness data. This enables comprehensive automated technical audits.
@@ -189,7 +169,7 @@ When a user requests a technical SEO audit:
    | Submitted to ~~search console | ✅/⚠️/❌ | [notes] |
    | URLs count | [X] | [appropriate?] |
    | Only indexable URLs | ✅/⚠️/❌ | [notes] |
-   | Includes priority | ✅/⚠️ | [notes] |
+   | Accurate lastmod (priority/changefreq not relied on; Google ignores them) | ✅/⚠️ | [notes] |
    | Includes lastmod | ✅/⚠️ | [accurate?] |
    
    **Issues Found**:
@@ -257,11 +237,11 @@ When a user requests a technical SEO audit:
    **Indexability Score**: [X]/10
    ```
 
-3. **Audit Site Speed & Core Web Vitals** — CWV metrics (LCP/FID/CLS/INP), additional performance metrics (TTFB/FCP/Speed Index/TBT), resource loading breakdown, optimization recommendations
+3. **Audit Site Speed & Core Web Vitals** — CWV metrics (LCP/INP/CLS; INP replaced FID in March 2024), additional performance metrics (TTFB/FCP/Speed Index/TBT), resource loading breakdown, optimization recommendations
 
    > **Reference**: See [references/technical-audit-templates.md](./references/technical-audit-templates.md) for the performance analysis template (Step 3).
 
-4. **Audit Mobile-Friendliness** — Mobile-friendly test, responsive design check, mobile-first indexing verification
+4. **Audit Mobile-Friendliness** — Mobile usability check (Lighthouse / Chrome DevTools; Google's Mobile-Friendly Test was retired Dec 2023), responsive design check, mobile-first indexing verification
 
    > **Reference**: See [references/technical-audit-templates.md](./references/technical-audit-templates.md) for the mobile optimization template (Step 4).
 
@@ -322,9 +302,5 @@ When a user requests a technical SEO audit:
 ## Related Skills
 
 - [on-page-seo-auditor](../on-page-seo-auditor/) — On-page SEO audit
-- [schema-markup-generator](../../build/schema-markup-generator/) — Fix schema issues
-- [performance-reporter](../../monitor/performance-reporter/) — Monitor improvements
-- [internal-linking-optimizer](../internal-linking-optimizer/) — Fix link issues
-- [alert-manager](../../monitor/alert-manager/) — Set up alerts for technical issues found
-- [content-quality-auditor](../../cross-cutting/content-quality-auditor/) — Full 80-item CORE-EEAT audit
+- [schema-markup-generator](../schema-markup-generator/) — Fix schema issues
 

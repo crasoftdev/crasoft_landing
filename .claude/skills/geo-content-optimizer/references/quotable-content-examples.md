@@ -2,6 +2,8 @@
 
 Before/after examples of content optimized for AI citation. Each example shows the transformation from generic to quotable.
 
+> **Note:** Statistics, studies and percentages in these examples show the writing format only. They have not been verified. Never copy them into real content.
+
 ## Example 1: Definition Block
 
 ### Before (Generic, Not Quotable)
@@ -333,10 +335,10 @@ Before/after examples of content optimized for AI citation. Each example shows t
 > | Metric | Measures | Good Score | Impact |
 > |--------|----------|------------|--------|
 > | **LCP (Largest Contentful Paint)** | Loading performance | <2.5 seconds | How quickly main content appears |
-> | **FID (First Input Delay)** | Interactivity | <100 milliseconds | How quickly page responds to user input |
+> | **INP (Interaction to Next Paint)** | Responsiveness | <200 milliseconds | How quickly the page responds to user input |
 > | **CLS (Cumulative Layout Shift)** | Visual stability | <0.1 | How much content shifts during loading |
 >
-> According to Google's 2024 documentation, pages meeting all three thresholds rank higher and receive 24% more clicks than pages failing these metrics. Core Web Vitals became an official ranking factor in June 2021 as part of Google's Page Experience update.
+> Google reported in 2020 that users are 24% less likely to abandon page loads when a site meets the Core Web Vitals thresholds. Core Web Vitals became part of Google's page experience signals in June 2021, and INP replaced FID in March 2024.
 >
 > Test your Core Web Vitals with ~~page speed tool.
 

@@ -56,7 +56,6 @@ Referenced from [SKILL.md](../SKILL.md).
 | Metric | Mobile | Desktop | Target | Status |
 |--------|--------|---------|--------|--------|
 | LCP (Largest Contentful Paint) | 4.8s | 2.1s | <2.5s | ❌ Mobile / ✅ Desktop |
-| FID (First Input Delay) | 45ms | 12ms | <100ms | ✅ / ✅ |
 | CLS (Cumulative Layout Shift) | 0.24 | 0.08 | <0.1 | ❌ Mobile / ✅ Desktop |
 | INP (Interaction to Next Paint) | 380ms | 140ms | <200ms | ❌ Mobile / ✅ Desktop |
 
@@ -152,7 +151,7 @@ Score Breakdown:
 - [ ] JS/CSS are minified
 
 ### Mobile
-- [ ] Mobile-friendly test passes
+- [ ] Lighthouse mobile audit passes (viewport, font size, tap targets)
 - [ ] Viewport is configured
 - [ ] Touch elements are properly sized
 

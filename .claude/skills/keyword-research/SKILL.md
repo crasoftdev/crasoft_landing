@@ -1,7 +1,7 @@
 ---
 name: keyword-research
 version: "3.0.0"
-description: 'This skill should be used when the user asks to "find keywords", "keyword research", "what should I write about", "keyword difficulty score", "search volume data", "identify ranking opportunities", "topic ideas", "what are people searching for", "which keywords to target", "content ideas for [topic]", or "long-tail keyword suggestions". Discovers high-value keywords with search intent classification (informational/commercial/transactional/navigational), keyword difficulty (KD) scoring, monthly search volume (MSV), CPC estimates, and AI citation potential. Produces ranked keyword lists, topic clusters with pillar + cluster page assignments, and priority-scored content calendars. Works with Ahrefs, SEMrush, Google Keyword Planner, Google Search Console, or manual data input. For competitor keyword gaps, see competitor-analysis. For topic coverage gaps, see content-gap-analysis.'
+description: 'This skill should be used when the user asks to "find keywords", "keyword research", "what should I write about", "keyword difficulty score", "search volume data", "identify ranking opportunities", "topic ideas", "what are people searching for", "which keywords to target", "content ideas for [topic]", or "long-tail keyword suggestions". Discovers high-value keywords with search intent classification (informational/commercial/transactional/navigational), keyword difficulty (KD) scoring, monthly search volume (MSV), CPC estimates, and AI citation potential. Produces ranked keyword lists, topic clusters with pillar + cluster page assignments, and priority-scored content calendars. Works with Ahrefs, SEMrush, Google Keyword Planner, Google Search Console, or manual data input.'
 license: Apache-2.0
 compatibility: "Claude Code ≥1.0, skills.sh marketplace, ClawHub marketplace, Vercel Labs skills ecosystem. No system packages required. Optional: MCP network access for SEO tool integrations."
 metadata:
@@ -43,24 +43,6 @@ metadata:
 ---
 
 # Keyword Research
-
-
-> **[SEO & GEO Skills Library](https://skills.sh/aaron-he-zhu/seo-geo-claude-skills)** · 20 skills for SEO + GEO · Install all: `npx skills add aaron-he-zhu/seo-geo-claude-skills`
-
-<details>
-<summary>Browse all 20 skills</summary>
-
-**Research** · **keyword-research** · [competitor-analysis](../competitor-analysis/) · [serp-analysis](../serp-analysis/) · [content-gap-analysis](../content-gap-analysis/)
-
-**Build** · [seo-content-writer](../../build/seo-content-writer/) · [geo-content-optimizer](../../build/geo-content-optimizer/) · [meta-tags-optimizer](../../build/meta-tags-optimizer/) · [schema-markup-generator](../../build/schema-markup-generator/)
-
-**Optimize** · [on-page-seo-auditor](../../optimize/on-page-seo-auditor/) · [technical-seo-checker](../../optimize/technical-seo-checker/) · [internal-linking-optimizer](../../optimize/internal-linking-optimizer/) · [content-refresher](../../optimize/content-refresher/)
-
-**Monitor** · [rank-tracker](../../monitor/rank-tracker/) · [backlink-analyzer](../../monitor/backlink-analyzer/) · [performance-reporter](../../monitor/performance-reporter/) · [alert-manager](../../monitor/alert-manager/)
-
-**Cross-cutting** · [content-quality-auditor](../../cross-cutting/content-quality-auditor/) · [domain-authority-auditor](../../cross-cutting/domain-authority-auditor/) · [entity-optimizer](../../cross-cutting/entity-optimizer/) · [memory-management](../../cross-cutting/memory-management/)
-
-</details>
 
 Discovers, analyzes, and prioritizes keywords for SEO and GEO content strategies. Identifies high-value opportunities based on search volume, competition, intent, and business relevance.
 
@@ -112,8 +94,6 @@ What keywords is [competitor URL] ranking for that I should target?
 ```
 
 ## Data Sources
-
-> See [CONNECTORS.md](../../CONNECTORS.md) for tool category placeholders.
 
 **With ~~SEO tool + ~~search console connected:**
 Automatically pull historical search volume data, keyword difficulty scores, SERP analysis, current rankings from ~~search console, and competitor keyword overlap. The skill will fetch seed keyword metrics, related keyword suggestions, and search trend data.
@@ -329,7 +309,6 @@ When a user requests keyword research:
 6. **Include GEO keywords** in your strategy for AI visibility
 7. **Review quarterly** - keyword dynamics change over time
 
-
 ## Reference Materials
 
 - [Keyword Intent Taxonomy](./references/keyword-intent-taxonomy.md) — Complete intent classification with signal words and content strategies
@@ -339,9 +318,5 @@ When a user requests keyword research:
 
 ## Related Skills
 
-- [competitor-analysis](../competitor-analysis/) — See what keywords competitors rank for
-- [content-gap-analysis](../content-gap-analysis/) — Find missing keyword opportunities
-- [seo-content-writer](../../build/seo-content-writer/) — Create content for target keywords
-- [geo-content-optimizer](../../build/geo-content-optimizer/) — Optimize for AI citations
-- [rank-tracker](../../monitor/rank-tracker/) — Monitor keyword position changes over time
+- [geo-content-optimizer](../geo-content-optimizer/) — Optimize for AI citations
 

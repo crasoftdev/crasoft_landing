@@ -41,24 +41,6 @@ metadata:
 
 # Entity Optimizer
 
-
-> **[SEO & GEO Skills Library](https://skills.sh/aaron-he-zhu/seo-geo-claude-skills)** · 20 skills for SEO + GEO · Install all: `npx skills add aaron-he-zhu/seo-geo-claude-skills`
-
-<details>
-<summary>Browse all 20 skills</summary>
-
-**Research** · [keyword-research](../../research/keyword-research/) · [competitor-analysis](../../research/competitor-analysis/) · [serp-analysis](../../research/serp-analysis/) · [content-gap-analysis](../../research/content-gap-analysis/)
-
-**Build** · [seo-content-writer](../../build/seo-content-writer/) · [geo-content-optimizer](../../build/geo-content-optimizer/) · [meta-tags-optimizer](../../build/meta-tags-optimizer/) · [schema-markup-generator](../../build/schema-markup-generator/)
-
-**Optimize** · [on-page-seo-auditor](../../optimize/on-page-seo-auditor/) · [technical-seo-checker](../../optimize/technical-seo-checker/) · [internal-linking-optimizer](../../optimize/internal-linking-optimizer/) · [content-refresher](../../optimize/content-refresher/)
-
-**Monitor** · [rank-tracker](../../monitor/rank-tracker/) · [backlink-analyzer](../../monitor/backlink-analyzer/) · [performance-reporter](../../monitor/performance-reporter/) · [alert-manager](../../monitor/alert-manager/)
-
-**Cross-cutting** · [content-quality-auditor](../content-quality-auditor/) · [domain-authority-auditor](../domain-authority-auditor/) · **entity-optimizer** · [memory-management](../memory-management/)
-
-</details>
-
 Audits, builds, and maintains entity identity across search engines and AI systems. Entities — the people, organizations, products, and concepts that search engines and AI systems recognize as distinct things — are the foundation of how both Google and LLMs decide *what a brand is* and *whether to cite it*.
 
 **Why entities matter for SEO + GEO:**
@@ -121,8 +103,6 @@ AI systems confuse [my entity] with [other entity] — help me disambiguate
 ```
 
 ## Data Sources
-
-> See [CONNECTORS.md](../../CONNECTORS.md) for tool category placeholders.
 
 **With ~~knowledge graph + ~~SEO tool + ~~AI monitor + ~~brand monitor connected:**
 Query Knowledge Graph API for entity status, pull branded search data from ~~SEO tool, test AI citation with ~~AI monitor, track brand mentions with ~~brand monitor.
@@ -268,8 +248,7 @@ Sorted by: impact on entity recognition × effort required
 
 - **CORE-EEAT relevance**: Items A07 (Knowledge Graph Presence) and A08 (Entity Consistency) directly overlap — entity optimization strengthens Authority dimension
 - **CITE relevance**: CITE I01-I10 (Identity dimension) measures entity signals at domain level — entity optimization feeds these scores
-- For content-level audit: [content-quality-auditor](../content-quality-auditor/)
-- For domain-level audit: [domain-authority-auditor](../domain-authority-auditor/)
+- Full checklists: [CORE-EEAT benchmark](../references/core-eeat-benchmark.md) (content) and [CITE domain rating](../references/cite-domain-rating.md) (domain)
 ```
 
 ## Validation Checkpoints
@@ -296,7 +275,7 @@ Sorted by: impact on entity recognition × effort required
 
 ## Tips for Success
 
-1. **Start with Wikidata** — It's the single most influential editable knowledge base; a complete Wikidata entry with references often triggers Knowledge Panel creation within weeks
+1. **Start with Wikidata** — It's the single most influential editable knowledge base; a complete Wikidata entry with external references can help trigger a Knowledge Panel (no guaranteed timeline; the entry must meet Wikidata's notability rules)
 2. **sameAs is your most powerful Schema.org property** — It directly tells search engines "I am this entity in the Knowledge Graph"; always include Wikidata URL first
 3. **Test AI recognition before and after** — Query ChatGPT, Claude, Perplexity, and Google AI Overview before optimizing, then again after; this is the most direct GEO metric
 4. **Entity signals compound** — Unlike content SEO, entity signals from different sources reinforce each other; 5 weak signals together are stronger than 1 strong signal alone
@@ -320,11 +299,5 @@ Detailed guides for entity optimization:
 
 ## Related Skills
 
-- [content-quality-auditor](../content-quality-auditor/) — CORE-EEAT items A07 (Knowledge Graph Presence) and A08 (Entity Consistency) directly relate
-- [domain-authority-auditor](../domain-authority-auditor/) — CITE I01-I10 (Identity dimension) measures entity signals at domain level
-- [schema-markup-generator](../../build/schema-markup-generator/) — Generate Organization, Person, Product, and other entity schema
-- [geo-content-optimizer](../../build/geo-content-optimizer/) — Entity signals feed AI citation probability
-- [competitor-analysis](../../research/competitor-analysis/) — Compare entity presence against competitors
-- [backlink-analyzer](../../monitor/backlink-analyzer/) — Branded backlinks strengthen entity signals
-- [performance-reporter](../../monitor/performance-reporter/) — Track branded search and Knowledge Panel metrics
-- [memory-management](../memory-management/) — Store entity audit results for tracking over time
+- [schema-markup-generator](../schema-markup-generator/) — Generate Organization, Person, Product, and other entity schema
+- [geo-content-optimizer](../geo-content-optimizer/) — Entity signals feed AI citation probability
