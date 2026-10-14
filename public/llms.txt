@@ -8,8 +8,8 @@
 
 ## Products (TFONE, for trucking companies)
 
-- TFONE TMS: one place to manage loads, dispatch, drivers, trucks, billing and documents.
-- TFONE Driver App: drivers see loads, update status and send documents from the road.
+- [TFONE TMS](https://www.thetfone.com): one place to manage loads, dispatch, drivers, trucks, billing and documents.
+- [TFONE Driver App](https://www.thetfone.com): drivers see loads, update status and send documents from the road.
 - TFONE Navigation: plans routes based on a truck's height and size.
 - TFSign: sign documents online, without printing or scanning.
 - Relay TMS Sync: a Chrome extension that syncs loads from Relay into TFONE TMS.

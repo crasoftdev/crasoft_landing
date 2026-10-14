@@ -11,18 +11,16 @@ import { cn } from "@/lib/utils";
 // TODO(content): pick a form service (ask first), then post to it instead of mailto.
 
 const SIZES = ["Just me", "2–10 people", "11–50 people", "51–200 people", "200+ people"];
-const INTERESTS = ["TFONE products", "Build my idea", "Software for my business", "Partnership or investment"];
 
-type Fields = { name: string; company: string; email: string; size: string; interest: string; message: string };
-type Errors = Partial<Record<"name" | "email" | "interest", string>>;
+type Fields = { name: string; company: string; email: string; size: string; message: string };
+type Errors = Partial<Record<"name" | "email", string>>;
 
-const EMPTY: Fields = { name: "", company: "", email: "", size: "", interest: "", message: "" };
+const EMPTY: Fields = { name: "", company: "", email: "", size: "", message: "" };
 
 function validate(f: Fields): Errors {
   const errors: Errors = {};
   if (!f.name.trim()) errors.name = "Please add your name.";
   if (!/^\S+@\S+\.\S+$/.test(f.email.trim())) errors.email = "Please add a valid email.";
-  if (!f.interest) errors.interest = "Please pick one.";
   return errors;
 }
 
@@ -32,10 +30,9 @@ function mailtoHref(f: Fields) {
     f.company.trim() && `Company: ${f.company.trim()}`,
     `Email: ${f.email.trim()}`,
     f.size && `Company size: ${f.size}`,
-    `Interested in: ${f.interest}`,
   ].filter(Boolean);
   const body = [...details, "", f.message.trim()].join("\n").trim();
-  const subject = `Book a call: ${f.interest}`;
+  const subject = `Book a call: ${f.company.trim() || f.name.trim()}`;
   return `mailto:${site.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
@@ -60,7 +57,7 @@ export function ContactForm() {
     e.preventDefault();
     const found = validate(fields);
     setErrors(found);
-    const firstBad = (["name", "email", "interest"] as const).find((k) => found[k]);
+    const firstBad = (["name", "email"] as const).find((k) => found[k]);
     if (firstBad) {
       formRef.current?.querySelector<HTMLElement>(`[data-field="${firstBad}"]`)?.focus();
       return;
@@ -175,33 +172,6 @@ export function ContactForm() {
           ))}
         </select>
       </label>
-
-      <fieldset className="flex flex-col gap-2 sm:col-span-2" {...err("interest")}>
-        <legend className="mb-2 text-sm font-semibold">What are you interested in?</legend>
-        <div className="flex flex-wrap gap-2">
-          {INTERESTS.map((option, i) => (
-            <label key={option} className="cursor-pointer">
-              <input
-                data-field={i === 0 ? "interest" : undefined}
-                type="radio"
-                name="interest"
-                value={option}
-                checked={fields.interest === option}
-                onChange={() => set("interest")(option)}
-                className="peer sr-only"
-              />
-              <span className="inline-block rounded-full border border-line-strong bg-card px-4 py-2.5 text-[15px] font-medium transition-colors peer-checked:border-ink peer-checked:bg-ink peer-checked:text-surface peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-brand-strong hover:border-ink">
-                {option}
-              </span>
-            </label>
-          ))}
-        </div>
-        {errors.interest && (
-          <span id={`${id}-interest-error`} className={errorText}>
-            {errors.interest}
-          </span>
-        )}
-      </fieldset>
 
       <label className={cn(fieldLabel, "sm:col-span-2")}>
         Message

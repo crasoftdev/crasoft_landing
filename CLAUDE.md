@@ -57,7 +57,7 @@ app/
   globals.css             Tailwind import + design tokens
 components/
   layout/                 Navbar, Footer, Container, SkipLink
-  home/                   Hero, ProductsShowcase, TrustStrip, HowWeCraft, WhatsNext, FinalCta
+  home/                   Hero, ProductsShowcase, HowWeCraft, WhatsNext, FinalCta
   demos/                  TmsDemo, DriverAppDemo, NavigationDemo, RelaySyncDemo (fake data next to each)
   ui/                     Button, Section, Reveal, CountUp, TryItHint, ...
   seo/JsonLd.tsx          renders a typed schema-dts object as <script type="application/ld+json">
@@ -113,7 +113,6 @@ Images:
 - Animation never removes content from the HTML. The server renders the text and the client only animates it in. Animate `opacity` and `transform` only, never layout properties.
 - Home animations follow the blueprint table:
   - Hero lines reveal one by one.
-  - Trust numbers count up when scrolled into view. The final number is in the HTML.
   - The three principles fade in one by one.
   - Everything else stays subtle.
 

@@ -17,7 +17,7 @@ export const products: Product[] = [
     kind: "Web app",
     line: "One place to manage loads, dispatch, drivers, trucks, billing and documents.",
     applicationCategory: "BusinessApplication",
-    url: null,
+    url: "https://www.thetfone.com",
   },
   {
     slug: "tfone-driver-app",
@@ -25,7 +25,7 @@ export const products: Product[] = [
     kind: "Mobile app",
     line: "Drivers see loads, update status and send documents from the road.",
     applicationCategory: "BusinessApplication",
-    url: null,
+    url: "https://www.thetfone.com",
   },
   {
     slug: "tfone-navigation",

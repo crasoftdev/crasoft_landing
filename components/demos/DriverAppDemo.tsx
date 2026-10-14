@@ -1,5 +1,4 @@
 import Image from "next/image";
-import type { ReactNode } from "react";
 import {
   ArrowUp,
   CarFront,
@@ -28,7 +27,7 @@ import {
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { px, type Point } from "@/components/demos/map";
-import { Click, Curtain, Pill, Pin, TFONE_ICON } from "@/components/demos/parts";
+import { Click, Curtain, FuelPin, Pill, Pin, TFONE_ICON, type FuelBrand } from "@/components/demos/parts";
 
 // The TFONE Driver App phone from the Claude Design ("TFONE Driver App Demo.html"),
 // as static markup that <Timeline loop={DRIVER_LOOP}> plays. Fake data only.
@@ -71,11 +70,11 @@ const WEIGH_STATIONS: Point[] = [
   [198, 440],
   [104, 570],
 ];
-const FUEL_STOPS: { badge: ReactNode; tone: string; at: Point; price: string; low?: boolean }[] = [
-  { badge: "L", tone: "bg-tf-red", at: [108, 300], price: "3.89" },
-  { badge: "P", tone: "bg-tf-red", at: [212, 340], price: "3.92" },
-  { badge: "TA", tone: "bg-tf-green-line", at: [206, 225], price: "3.95" },
-  { badge: <Fuel className="size-3.5" />, tone: "bg-tf-blue-strong", at: [118, 200], price: "3.79", low: true },
+const FUEL_STOPS: { brand: FuelBrand; at: Point; price: string; low?: boolean }[] = [
+  { brand: "loves", at: [108, 300], price: "3.89" },
+  { brand: "pilot", at: [212, 340], price: "3.92" },
+  { brand: "ta", at: [206, 225], price: "3.95" },
+  { brand: "fuel", at: [84, 420], price: "3.79", low: true },
 ];
 
 // The filter chips. `on` is when the driver turns one on.
@@ -298,21 +297,7 @@ function NavigateScene() {
           </Pin>
         ))}
         {FUEL_STOPS.map((stop, i) => (
-          <Pin
-            key={stop.price}
-            at={stop.at}
-            t={8500 + i * 120}
-            tone={stop.tone}
-            low={stop.low}
-            tag={
-              <>
-                {stop.price}
-                {stop.low && <span className="block text-[7px] leading-none">LOW</span>}
-              </>
-            }
-          >
-            {stop.badge}
-          </Pin>
+          <FuelPin key={stop.price} {...stop} t={8500 + i * 120} />
         ))}
       </div>
 

@@ -1,12 +1,11 @@
-import type { ReactNode } from "react";
 import { CarFront, Fuel, Scale, Sofa, Truck, type LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ROUTES } from "@/components/demos/routes";
 import { fitProjection, splitRoute, toPath } from "@/components/demos/map";
-import { Pin } from "@/components/demos/parts";
+import { FuelPin, Pin, type FuelBrand } from "@/components/demos/parts";
 
 // A still of TFONE Navigation for its product card: the whole Atlanta → Charlotte
-// route seen from high up, with weigh stations and fuel stops along it. Static,
+// route seen from high up, with a weigh station and fuel stops along it. Static,
 // server-rendered markup with no animation. Fake data only.
 
 export const NAV_OVERVIEW_SIZE = { width: 360, height: 270 };
@@ -16,11 +15,12 @@ const project = fitProjection(ROUTES.next, { left: 34, top: 70, right: W - 52, b
 const route = ROUTES.next.map(project);
 const along = (f: number) => project(splitRoute(ROUTES.next, f).at);
 
-const WEIGH_STATIONS = [0.14, 0.68].map(along);
-const FUEL_STOPS: { badge: ReactNode; tone: string; f: number; price: string; low?: boolean }[] = [
-  { badge: "L", tone: "bg-tf-red", f: 0.32, price: "3.89" },
-  { badge: <Fuel className="size-3.5" />, tone: "bg-tf-blue-strong", f: 0.5, price: "3.79", low: true },
-  { badge: "TA", tone: "bg-tf-green-line", f: 0.86, price: "3.95" },
+const WEIGH_STATIONS = [0.05].map(along);
+const FUEL_STOPS: { brand: FuelBrand; f: number; price: string; low?: boolean }[] = [
+  { brand: "pilot", f: 0.22, price: "3.89" },
+  { brand: "fuel", f: 0.405, price: "3.79", low: true },
+  { brand: "loves", f: 0.595, price: "3.92" },
+  { brand: "ta", f: 0.8, price: "3.95" },
 ];
 
 // Faint roads around the route, for a sense of the map.
@@ -47,7 +47,7 @@ export function NavigationOverview() {
   return (
     <div
       role="img"
-      aria-label="TFONE Navigation map: a truck route from Atlanta to Charlotte, with fuel stations, their diesel prices and weigh stations along the way."
+      aria-label="TFONE Navigation map: a truck route from Atlanta to Charlotte, with fuel stations, their diesel prices and a weigh station along the way."
       data-nosnippet=""
       className="relative overflow-hidden bg-tf-map font-sans text-tf-text"
       style={{ width: W, height: H }}
@@ -86,20 +86,7 @@ export function NavigationOverview() {
         </Pin>
       ))}
       {FUEL_STOPS.map((stop) => (
-        <Pin
-          key={stop.price}
-          at={along(stop.f)}
-          tone={stop.tone}
-          low={stop.low}
-          tag={
-            <>
-              {stop.price}
-              {stop.low && <span className="block text-[7px] leading-none">LOW</span>}
-            </>
-          }
-        >
-          {stop.badge}
-        </Pin>
+        <FuelPin key={stop.price} at={along(stop.f)} brand={stop.brand} price={stop.price} low={stop.low} />
       ))}
 
       <div className="absolute top-2.5 -left-[61px] flex gap-1.5 text-[11px] font-semibold whitespace-nowrap">

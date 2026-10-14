@@ -1,4 +1,6 @@
+import Image from "next/image";
 import type { ReactNode } from "react";
+import { Fuel } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { px, type Point } from "@/components/demos/map";
 
@@ -135,6 +137,80 @@ export function Pin({
         )}
       >
         {tag}
+      </span>
+    </span>
+  );
+}
+
+// A fuel station on the map, drawn as in TFONE Navigation: a pin in the brand's
+// color with its logo, and the diesel price to the right of it. Unbranded
+// stations get the round blue pin. `at` is the pin's tip; `t` works as in Pin.
+export type FuelBrand = "loves" | "pilot" | "ta" | "fuel";
+
+const FUEL_HEAD = "relative z-[1] flex items-center justify-center border-2 border-card shadow-[0_2px_6px_rgb(0_0_0/0.45)]";
+const FUEL_DISC = "flex size-[20px] items-center justify-center rounded-full bg-card";
+
+export function FuelPin({
+  at,
+  t,
+  brand,
+  price,
+  low,
+}: {
+  at: Point;
+  t?: number;
+  brand: FuelBrand;
+  price: string;
+  low?: boolean;
+}) {
+  const tone = { loves: "bg-tf-red", pilot: "bg-tf-pilot", ta: "bg-tf-ta", fuel: "bg-tf-blue-strong" }[brand];
+  // Pilot's logo is a wide wordmark, so its pin is wider than the square ones.
+  const headW = brand === "pilot" ? 42 : 30;
+  const tipY = brand === "fuel" ? 36 : 37;
+  return (
+    <span
+      data-a={t == null ? undefined : "pop"}
+      data-t={t}
+      className="absolute z-[2] flex h-[30px] items-center"
+      style={px([at[0] - headW / 2, at[1] - tipY])}
+    >
+      {brand === "fuel" ? (
+        <span className={cn(FUEL_HEAD, "size-[30px] -rotate-45 rounded-[50%_50%_50%_0]", tone)}>
+          <span className={cn(FUEL_DISC, "rotate-45 text-tf-blue-strong")}>
+            <Fuel className="size-3" />
+          </span>
+        </span>
+      ) : (
+        <span className="relative flex">
+          {/* The tail, under the head */}
+          <span
+            className={cn("absolute top-5 left-1/2 size-3.5 -translate-x-1/2 rotate-45 border-r-2 border-b-2 border-card", tone)}
+          />
+          <span className={cn(FUEL_HEAD, "h-[30px] overflow-hidden rounded-[9px]", tone)} style={{ width: headW }}>
+            {brand === "pilot" && (
+              <Image src="/products/tfone-navigation/pilot.svg" alt="" width={40} height={16} className="max-w-none" />
+            )}
+            {brand === "ta" && (
+              <span className={FUEL_DISC}>
+                <Image src="/products/tfone-navigation/ta.svg" alt="" width={15} height={11} />
+              </span>
+            )}
+            {brand === "loves" && (
+              <span className={FUEL_DISC}>
+                <Image src="/products/tfone-navigation/loves.svg" alt="" width={16} height={13} />
+              </span>
+            )}
+          </span>
+        </span>
+      )}
+      <span
+        className={cn(
+          "-ml-2 rounded-full border border-card/80 py-0.5 pr-2 pl-3 text-center text-[11px] leading-tight font-bold",
+          low ? "bg-tf-blue-strong text-card" : "bg-tf-frame text-tf-text",
+        )}
+      >
+        {price}
+        {low && <span className="block text-[7px] leading-none">LOW</span>}
       </span>
     </span>
   );

@@ -56,6 +56,8 @@
   --color-tf-red: #e5484d;
   --color-tf-red-soft: #f87171;
   --color-tf-red-bg: #3a1d1d;
+  --color-tf-pilot: #dc1730; /* Pilot fuel pins, the red of its logo */
+  --color-tf-ta: #1b6b45; /* TA fuel pins, as in the app */
   --color-tf-dot-red: #ff5f57; /* window buttons */
   --color-tf-dot-yellow: #febc2e;
   --color-tf-dot-green: #28c840;

@@ -1,11 +1,9 @@
 import { pageMetadata, productsSchema } from "@/lib/seo";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Hero } from "@/components/home/Hero";
-import { Proof } from "@/components/home/Proof";
 import { Products } from "@/components/home/Products";
 import { Services } from "@/components/home/Services";
 import { Process } from "@/components/home/Process";
-import { CaseStudy } from "@/components/home/CaseStudy";
 import { Investors } from "@/components/home/Investors";
 import { Faq } from "@/components/home/Faq";
 import { Contact } from "@/components/home/Contact";
@@ -22,11 +20,9 @@ export default function Home() {
     <main id="main" className="flex-1">
       <JsonLd data={productsSchema()} />
       <Hero />
-      <Proof />
       <Products />
       <Services />
       <Process />
-      <CaseStudy />
       <Investors />
       <Faq />
       <Contact />

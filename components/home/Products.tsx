@@ -1,6 +1,7 @@
-import Link from "next/link";
+import Image, { type StaticImageData } from "next/image";
+import relaySyncLoads from "@/public/products/relay-tms-sync/relay-sync-loads.png";
+import tfsignDashboard from "@/public/products/tfsign/tfsign-dashboard.png";
 import { getProduct, navigationStores, type Product } from "@/lib/products";
-import { contactHref } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import { buttonClass, container, eyebrow, h2, lead } from "@/components/ui/styles";
 import { ExternalLink } from "@/components/ui/ExternalLink";
@@ -30,6 +31,12 @@ const DRIVER_STEPS = [
 
 // The smaller products, as cards under the two demos.
 const CARD_PRODUCTS = [getProduct("tfone-navigation"), getProduct("tfsign"), getProduct("relay-tms-sync")];
+
+// Screenshots for the cards without a live demo, 4:3 at ~1300px wide.
+const CARD_IMAGES: Partial<Record<Product["slug"], { src: StaticImageData; alt: string }>> = {
+  tfsign: { src: tfsignDashboard, alt: "TFSign dashboard with documents waiting for signature" },
+  "relay-tms-sync": { src: relaySyncLoads, alt: "Relay TMS Sync's Sync loads button on the Relay Trips page, with its week menu open" },
+};
 
 const tagline = "font-display text-[clamp(30px,3.4vw,46px)] leading-[1.05] font-semibold tracking-[-0.025em] text-balance";
 
@@ -115,16 +122,6 @@ export function Products() {
           <ProductCard key={product.slug} product={product} />
         ))}
       </div>
-
-      <div className="reveal mt-5 flex flex-wrap items-center justify-between gap-4 rounded-3xl border-[1.5px] border-dashed border-line-strong p-8">
-        <div>
-          <h3 className="font-display text-[22px] font-semibold">Next product line</h3>
-          <p className="mt-1.5 text-muted">We’re working on what comes after TFONE.</p>
-        </div>
-        <Link href={contactHref} className={buttonClass("outline")}>
-          Stay in touch
-        </Link>
-      </div>
     </section>
   );
 }
@@ -140,6 +137,7 @@ function VisitWebsite({ product, className }: { product: Product; className?: st
 
 function ProductCard({ product }: { product: Product }) {
   const stores = product.slug === "tfone-navigation" ? navigationStores.filter((s) => s.href) : [];
+  const image = CARD_IMAGES[product.slug];
   return (
     <article aria-labelledby={`${product.slug}-name`} className="flex flex-col rounded-3xl border border-line bg-card p-6">
       {product.slug === "tfone-navigation" ? (
@@ -147,13 +145,14 @@ function ProductCard({ product }: { product: Product }) {
           <NavigationOverview />
         </FitScale>
       ) : (
-        <>
-          {/* TODO(content): product screenshot for this card (public/products/<slug>/). */}
-          <div
-            aria-hidden="true"
-            className="aspect-[4/3] rounded-[14px] bg-[repeating-linear-gradient(135deg,var(--color-line)_0_10px,var(--color-surface-alt)_10px_20px)]"
+        image && (
+          <Image
+            src={image.src}
+            alt={image.alt}
+            sizes="(min-width: 1024px) 322px, (min-width: 768px) 50vw, 100vw"
+            className="aspect-[4/3] w-full rounded-[14px] border border-line object-cover object-top"
           />
-        </>
+        )
       )}
       <p className="mt-5 text-[13px] font-semibold text-brand-strong">{product.kind}</p>
       <h3 id={`${product.slug}-name`} className="mt-2 font-display text-[22px] font-semibold">
