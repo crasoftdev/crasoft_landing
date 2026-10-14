@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Figtree, JetBrains_Mono, Outfit } from "next/font/google";
+import localFont from "next/font/local";
 import { site } from "@/lib/site";
 import { organizationSchema, websiteSchema } from "@/lib/seo";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -8,22 +8,26 @@ import { Footer } from "@/components/layout/Footer";
 import "./globals.css";
 
 // Brand fonts from the Claude Design: Outfit for headings, Figtree for body text,
-// JetBrains Mono for small uppercase labels.
-const outfit = Outfit({
+// JetBrains Mono for small uppercase labels. The Latin variable files from Google
+// Fonts live in app/fonts, so the build never fetches fonts over the network.
+const outfit = localFont({
+  src: "./fonts/outfit-latin.woff2",
   variable: "--font-outfit",
-  subsets: ["latin"],
-  weight: ["500", "600"],
+  weight: "500 600",
 });
 
-const figtree = Figtree({
+const figtree = localFont({
+  src: "./fonts/figtree-latin.woff2",
   variable: "--font-figtree",
-  subsets: ["latin"],
+  weight: "300 900",
 });
 
-const jetbrainsMono = JetBrains_Mono({
+const jetbrainsMono = localFont({
+  src: "./fonts/jetbrains-mono-latin.woff2",
   variable: "--font-jetbrains-mono",
-  subsets: ["latin"],
-  weight: ["400", "500"],
+  weight: "400 500",
+  fallback: ["ui-monospace", "monospace"],
+  adjustFontFallback: false,
 });
 
 export const metadata: Metadata = {
