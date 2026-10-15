@@ -53,7 +53,7 @@ app/
   legal/terms/page.tsx
   not-found.tsx
   sitemap.ts  robots.ts  manifest.ts
-  icon.svg  apple-icon.png  opengraph-image.png
+  icon.svg  apple-icon.png  opengraph-image.tsx  twitter-image.tsx
   globals.css             Tailwind import + design tokens
 components/
   layout/                 Navbar, Footer, Container, SkipLink
@@ -95,7 +95,7 @@ When the user hands over assets, put them here and wire them up:
 | Brand colors | `@theme` tokens in `app/globals.css` | Components use tokens (`bg-brand`, `text-ink`, ...), never raw hex. Check AA contrast. |
 | Fonts | `next/font` in `app/layout.tsx` | Geist stays until brand fonts arrive. Always self-hosted through `next/font`, never a `<link>` to Google Fonts. |
 | Product logos and screens | `public/products/<slug>/` | Slugs: `tfone-tms`, `tfone-driver-app`, `tfone-navigation`, `relay-tms-sync` |
-| Social share image | `app/opengraph-image.png` | 1200×630, logo + slogan |
+| Social share image | `app/opengraph-image.tsx` + `app/twitter-image.tsx` (drawn by `lib/og-image.tsx`) | 1200×630, generated at build time: logo, hero headline, company facts. Crasoft only. Fonts are TTF copies in `app/fonts/og/`. |
 | Team photos | `public/team/` | Square, with the same crop and light |
 
 Images:
@@ -139,7 +139,7 @@ These rules apply to every page. The skills listed below have the detailed check
   - a unique description of 150–160 characters
   - a canonical URL (`alternates.canonical`)
   - OG title, description and url
-- **Headings.** Each page has exactly one `<h1>`. Home's H1 is the hero headline. The sentence under it and the title tag carry the descriptive words ("software company", "TFONE"). Each section gets an `<h2>`, with `<h3>` inside, and no levels are skipped.
+- **Headings.** Each page has exactly one `<h1>`. Home's H1 is the hero headline. The sentence under it and the title tag carry the descriptive words ("software company"). The title, meta description and share image are about Crasoft only and name no product (no TFONE). Each section gets an `<h2>`, with `<h3>` inside, and no levels are skipped.
 - **Semantic HTML.** Use `<header>`, `<nav>`, `<main>`, `<section aria-labelledby>` and `<footer>`. Navigation uses `<a>` or `<Link>`; actions use `<button>`.
 - **`app/robots.ts`** allows everything, including AI crawlers (GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot, Google-Extended), and points to the sitemap.
 - **`app/sitemap.ts`** lists every public route with `lastModified`. It contains no 404s and no redirects.

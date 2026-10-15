@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { products } from "@/lib/products";
-import { navLinks, site } from "@/lib/site";
+import { legalLinks, navLinks, site } from "@/lib/site";
 import { container } from "@/components/ui/styles";
 import { ExternalLink } from "@/components/ui/ExternalLink";
 import { cn } from "@/lib/utils";
@@ -80,7 +80,15 @@ export function Footer() {
           <p>
             © {new Date().getFullYear()} {site.name}. All rights reserved.
           </p>
-          {/* TODO(content): Privacy and Terms links once /legal/privacy and /legal/terms exist. */}
+          <ul className="flex gap-5">
+            {legalLinks.map((link) => (
+              <li key={link.href}>
+                <Link href={link.href} className={linkClass}>
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </footer>

@@ -16,8 +16,8 @@ export function Navbar() {
             width={2172}
             height={724}
             preload
-            sizes="144px"
-            className="h-12 w-auto mix-blend-multiply"
+            sizes="168px"
+            className="h-14 w-auto mix-blend-multiply"
           />
         </Link>
 

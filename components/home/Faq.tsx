@@ -4,11 +4,11 @@ import { container, eyebrow, h2 } from "@/components/ui/styles";
 
 // Copy from the Claude Design (Crasoft Home.dc.html). Native <details>, so the
 // answers are in the HTML and it works without JavaScript. They share a `name`,
-// so opening one closes the others.
-const FAQS = [
+// so opening one closes the others. The FAQPage JSON-LD on Home reads this list.
+export const FAQS = [
   {
     q: "What does Crasoft do?",
-    a: "We are a software company. We build our own software products, like the TFONE family for trucking companies, and we also build custom software for other businesses and founders.",
+    a: "Crasoft is a US software company founded in 2020. We build our own software products, like the TFONE family for trucking companies, and we build custom software for other businesses and founders.",
   },
   {
     q: "I have an idea but no technical team. Can you help?",

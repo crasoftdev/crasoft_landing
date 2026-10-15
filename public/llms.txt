@@ -1,12 +1,26 @@
 # Crasoft
 
-> Crasoft is a US software company founded in 2020. We build TFONE, a family of apps for trucking companies, and custom software for businesses and founders.
+> Crasoft is a US software company founded in 2020. We design and build our own software products, plus custom web and mobile apps for businesses and founders.
 
-## Pages
+Crasoft (crasoftinc.com) is a software company in the United States. It does two things: it makes and runs its own software products, and it builds custom software for other companies and founders, from the first idea to launch and support after launch.
 
-- [Home](https://crasoftinc.com/): what Crasoft builds, our products, services, process, FAQ and how to book a call
+## Key facts
 
-## Products (TFONE, for trucking companies)
+- Name: Crasoft
+- Type: Software company
+- Founded: 2020
+- Country: United States
+- Website: https://crasoftinc.com
+- Email: info@crasoftinc.com
+- Slogan: Crafted software.
+
+## Services
+
+- Turn your idea into a product: for founders and startups with an idea. We design, build and launch it with you.
+- Software for your business: websites, mobile apps and tools made to fit the way your company works.
+- Support after launch: we keep improving, fixing and growing your software after it goes live.
+
+## Products built by Crasoft
 
 - [TFONE TMS](https://www.thetfone.com): one place to manage loads, dispatch, drivers, trucks, billing and documents.
 - [TFONE Driver App](https://www.thetfone.com): drivers see loads, update status and send documents from the road.
@@ -14,6 +28,8 @@
 - TFSign: sign documents online, without printing or scanning.
 - Relay TMS Sync: a Chrome extension that syncs loads from Relay into TFONE TMS.
 
-## Contact
+## Pages
 
-- Email: info@crasoftinc.com
+- [Home](https://crasoftinc.com/): what Crasoft builds, our products, services, process, FAQ and how to book a call
+- [Privacy Policy](https://crasoftinc.com/legal/privacy): what we collect when you visit or email us, and how to ask us to delete it
+- [Terms of Use](https://crasoftinc.com/legal/terms): the terms for using crasoftinc.com

@@ -4,8 +4,10 @@ import { contactHref, site } from "@/lib/site";
 import { HeroOrbit } from "@/components/home/HeroOrbit";
 
 // Copy from the Claude Design (Crasoft Home.dc.html). Swap here.
-const HEADLINE = "We turn everyday problems into simple software.";
-const SUPPORTING_LINE = `${site.name} designs and builds easy-to-use software for businesses. We make our own products, and we build custom software for companies and founders.`;
+// The headline lives in lib/site.ts because the share image uses it too.
+const HEADLINE = site.headline;
+// Carries the words people search for ("software company"), since the H1 doesn't.
+const SUPPORTING_LINE = `${site.name} is a software company that designs and builds easy-to-use software for businesses. We make our own products, and we build custom software for companies and founders.`;
 const ACTIONS = {
   primary: { label: "Book a call", href: contactHref },
   secondary: { label: "See our products", href: "/#products" },

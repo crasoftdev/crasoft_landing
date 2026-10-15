@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { site } from "@/lib/site";
-import { organizationSchema, websiteSchema } from "@/lib/seo";
+import { openGraphBase, organizationSchema, twitterBase, websiteSchema } from "@/lib/seo";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -36,15 +36,9 @@ export const metadata: Metadata = {
   description: site.description,
   applicationName: site.name,
   appleWebApp: { title: site.name },
-  openGraph: {
-    type: "website",
-    siteName: site.name,
-    locale: "en_US",
-    url: "/",
-  },
-  // TODO(content): app/opengraph-image.png (1200×630, logo + slogan), then switch
-  // to "summary_large_image".
-  twitter: { card: "summary" },
+  // The share image comes from app/opengraph-image.tsx and app/twitter-image.tsx.
+  openGraph: { ...openGraphBase, url: "/" },
+  twitter: twitterBase,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
